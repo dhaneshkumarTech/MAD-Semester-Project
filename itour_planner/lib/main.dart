@@ -4,6 +4,8 @@ void main() {
   runApp(const MyApp());
 }
 
+void newFunc() {}
+
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
@@ -47,6 +49,7 @@ class MyHomePage extends StatefulWidget {
   State<MyHomePage> createState() => _MyHomePageState();
 }
 
+// Just a comment here!
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
