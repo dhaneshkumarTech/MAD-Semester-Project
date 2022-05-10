@@ -11,7 +11,6 @@ void newFunc() {}
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
-<<<<<<< HEAD
   MaterialColor createMaterialColor(Color color) {
     List strengths = <double>[.05];
     Map<int, Color> swatch = {};
@@ -33,8 +32,6 @@ class MyApp extends StatelessWidget {
     return MaterialColor(color.value, swatch);
   }
 
-=======
->>>>>>> fcf454669069d4a8eb872351800bd63da19eef21
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
