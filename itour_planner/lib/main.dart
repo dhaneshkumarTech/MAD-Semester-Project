@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
         1,
       );
     }
-    ;
+    
     return MaterialColor(color.value, swatch);
   }
 
@@ -49,7 +49,6 @@ class MyHomePage extends StatefulWidget {
   State<MyHomePage> createState() => _MyHomePageState();
 }
 
-// Just a comment here!
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
