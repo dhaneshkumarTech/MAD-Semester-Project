@@ -49,14 +49,11 @@ class SplashScreen extends StatelessWidget {
       splash: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          SizedBox(
-            width: 300,
-            height: 78,
-            child: Image.asset('assets/app_logo.png'),
-          ),
+          SizedBox(height: 78, child: Image.asset('assets/app_logo.png')),
         ],
       ),
       nextScreen: const MyHomePage(),
+      backgroundColor: const Color.fromRGBO(173, 37, 51, 1),
       splashTransition: SplashTransition.slideTransition,
       duration: 2000,
       pageTransitionType: PageTransitionType.leftToRightWithFade,
