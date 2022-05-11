@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
-import './sign_up.dart';
+import './login_screen.dart';
 
-class LoginScreen extends StatefulWidget {
-  const LoginScreen({Key? key}) : super(key: key);
+class SignUp extends StatefulWidget {
+  const SignUp({Key? key}) : super(key: key);
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  State<SignUp> createState() => _SignUpState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _SignUpState extends State<SignUp> {
   bool _isHidden = true;
 
   void _togglePasswordView() {
@@ -55,7 +55,7 @@ class _LoginScreenState extends State<LoginScreen> {
               mainAxisAlignment: MainAxisAlignment.start,
               children: <Widget>[
                 Container(
-                  margin: const EdgeInsets.fromLTRB(5, 50, 5, 0),
+                  margin: const EdgeInsets.fromLTRB(5, 30, 5, 0),
                   child: TextFormField(
                     validator: null,
                     controller: null,
@@ -134,17 +134,45 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                 ),
                 Container(
-                  margin: const EdgeInsets.fromLTRB(0, 15, 0, 0),
-                  alignment: Alignment.centerRight,
-                  child: TextButton(
-                    child: const Text(
-                      'Forgot Password?',
-                      style: TextStyle(fontSize: 16),
-                    ),
-                    onPressed: () {},
-                    style: TextButton.styleFrom(
-                      primary: const Color.fromRGBO(173, 37, 51, 1),
-                      padding: const EdgeInsets.all(0),
+                  margin: const EdgeInsets.fromLTRB(5, 20, 5, 0),
+                  child: TextFormField(
+                    validator: null,
+                    obscureText: _isHidden,
+                    controller: null,
+                    decoration: InputDecoration(
+                      prefixIcon: const Icon(
+                        Icons.lock,
+                        color: Color.fromRGBO(173, 37, 51, 1),
+                      ),
+                      suffix: InkWell(
+                        onTap: _togglePasswordView,
+                        child: Icon(
+                          _isHidden ? Icons.visibility_off : Icons.visibility,
+                          color: const Color.fromRGBO(173, 37, 51, 1),
+                        ),
+                      ),
+                      errorBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10.0),
+                        borderSide: const BorderSide(
+                          width: 2.0,
+                        ),
+                      ),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10.0),
+                        borderSide: const BorderSide(
+                          width: 2.0,
+                        ),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: const BorderSide(
+                          width: 2.0,
+                        ),
+                        borderRadius: BorderRadius.circular(10.0),
+                      ),
+                      labelText: 'Confirm Password',
+                      labelStyle: const TextStyle(
+                        color: Color.fromRGBO(173, 37, 51, 1),
+                      ),
                     ),
                   ),
                 ),
@@ -161,7 +189,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                     onPressed: () {},
                     child: const Text(
-                      'LOG IN',
+                      'SIGN UP',
                       style: TextStyle(fontWeight: FontWeight.bold),
                     ),
                   ),
@@ -171,18 +199,18 @@ class _LoginScreenState extends State<LoginScreen> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
-                      const Text("Don't have an account?"),
+                      const Text("Already have an account?"),
                       TextButton(
                         onPressed: () {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => const SignUp(),
+                              builder: (context) => const LoginScreen(),
                             ),
                           );
                         },
                         child: const Text(
-                          'Sign Up',
+                          'Log in',
                         ),
                         style: TextButton.styleFrom(
                           primary: const Color.fromRGBO(173, 37, 51, 1),
