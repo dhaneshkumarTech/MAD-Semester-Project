@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import './sign_up.dart';
+import './otp_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -10,11 +11,35 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
   bool _isHidden = true;
+  String _email = "";
+  final _formKey = GlobalKey<FormState>();
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
 
   void _togglePasswordView() {
     setState(() {
       _isHidden = !_isHidden;
     });
+  }
+
+  String? _validateEmail(value) {
+    _email = value;
+    if (value!.isEmpty) return 'Enter email address';
+    final regex = RegExp(r'^.+@[a-zA-Z]+\.{1}[a-zA-Z]+(\.{0,1}[a-zA-Z]+)$');
+    if (!regex.hasMatch(value)) {
+      return 'Enter a valid email address';
+    }
+    return null;
+  }
+
+  String? _validatePassword(value) {
+    if (value!.isEmpty) return 'Enter password';
+    final regex =
+        RegExp(r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$');
+    if (!regex.hasMatch(value)) {
+      return 'Password must be at least 8 charactes long containing at least one uppercase letter, one number and one special character';
+    }
+    return null;
   }
 
   @override
@@ -57,8 +82,8 @@ class _LoginScreenState extends State<LoginScreen> {
                 Container(
                   margin: const EdgeInsets.fromLTRB(5, 50, 5, 0),
                   child: TextFormField(
-                    validator: null,
-                    controller: null,
+                    validator: _validateEmail,
+                    controller: _emailController,
                     keyboardType: TextInputType.emailAddress,
                     decoration: InputDecoration(
                       prefixIcon: const Icon(
@@ -95,7 +120,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   child: TextFormField(
                     validator: null,
                     obscureText: _isHidden,
-                    controller: null,
+                    controller: _passwordController,
                     decoration: InputDecoration(
                       prefixIcon: const Icon(
                         Icons.lock,
@@ -159,7 +184,14 @@ class _LoginScreenState extends State<LoginScreen> {
                       onPrimary: Colors.white,
                       shape: const StadiumBorder(),
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => OTP(_email),
+                        ),
+                      );
+                    },
                     child: const Text(
                       'LOG IN',
                       style: TextStyle(fontWeight: FontWeight.bold),
