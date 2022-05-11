@@ -48,23 +48,28 @@ class _LoginScreenState extends State<LoginScreen> {
     return Scaffold(
       body: Column(
         children: [
-          Container(
-            width: double.infinity,
-            height: 250,
-            child: SizedBox(
-              height: 60,
-              child: Image.asset('assets/images/app_logo.png'),
-            ),
-            alignment: Alignment.center,
-            decoration: const BoxDecoration(
-              color: Color.fromRGBO(173, 37, 51, 1),
-              gradient: LinearGradient(
-                begin: Alignment.topRight,
-                end: Alignment.bottomLeft,
-                colors: [
-                  Color.fromRGBO(173, 37, 51, 1),
-                  Color.fromRGBO(173, 37, 51, 0.9),
-                ],
+          Expanded(
+            child: Container(
+              padding: const EdgeInsets.only(
+                top: 100,
+              ),
+              width: double.infinity,
+              height: 250,
+              child: SizedBox(
+                height: 60,
+                child: Image.asset('assets/images/app_logo.png'),
+              ),
+              alignment: Alignment.topCenter,
+              decoration: const BoxDecoration(
+                color: Color.fromRGBO(173, 37, 51, 1),
+                gradient: LinearGradient(
+                  begin: Alignment.topRight,
+                  end: Alignment.bottomLeft,
+                  colors: [
+                    Color.fromRGBO(173, 37, 51, 1),
+                    Color.fromRGBO(173, 37, 51, 0.9),
+                  ],
+                ),
               ),
             ),
           ),
