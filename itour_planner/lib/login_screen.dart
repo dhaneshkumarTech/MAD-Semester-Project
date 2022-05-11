@@ -23,13 +23,17 @@ class _LoginScreenState extends State<LoginScreen> {
         children: [
           Container(
             width: double.infinity,
-            height: 200,
+            height: 300,
             child: SizedBox(
               height: 60,
               child: Image.asset('assets/images/app_logo.png'),
             ),
             alignment: Alignment.center,
             decoration: const BoxDecoration(
+              borderRadius: BorderRadius.only(
+                bottomRight: Radius.circular(200.0),
+                bottomLeft: Radius.circular(160.0),
+              ),
               color: Color.fromRGBO(173, 37, 51, 1),
               gradient: LinearGradient(
                 begin: Alignment.topRight,
@@ -43,56 +47,16 @@ class _LoginScreenState extends State<LoginScreen> {
           ),
           Container(
             width: double.infinity,
-            height: 500,
+            height: 420,
             margin: const EdgeInsets.fromLTRB(20, 0, 20, 0),
             decoration: const BoxDecoration(
-              color: Color.fromRGBO(255, 193, 7, 1),
               borderRadius: BorderRadius.all(Radius.circular(30.0)),
             ),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               children: <Widget>[
-                Container(
-                  width: 230,
-                  margin: const EdgeInsets.fromLTRB(0, 20, 0, 0),
-                  decoration: const BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.all(Radius.circular(30.0)),
-                  ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      SizedBox(
-                        width: 110,
-                        child: ElevatedButton(
-                          onPressed: () => {},
-                          child: const Text('Login'),
-                          style: ElevatedButton.styleFrom(
-                            alignment: Alignment.center,
-                            primary: const Color.fromRGBO(173, 37, 51, 1),
-                            onPrimary: Colors.white,
-                            shape: const StadiumBorder(),
-                          ),
-                        ),
-                      ),
-                      SizedBox(
-                        width: 110,
-                        child: ElevatedButton(
-                          onPressed: () => {},
-                          child: const Text('Sign Up'),
-                          style: ElevatedButton.styleFrom(
-                            alignment: Alignment.center,
-                            primary: const Color.fromRGBO(173, 37, 51, 1),
-                            onPrimary: Colors.white,
-                            shape: const StadiumBorder(),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
                 const SizedBox(
-                  height: 50,
+                  height: 100,
                 ),
                 TextFormField(
                   validator: null,
@@ -128,7 +92,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                 ),
                 const SizedBox(
-                  height: 30,
+                  height: 20,
                 ),
                 TextFormField(
                   validator: null,
@@ -171,19 +135,24 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                 ),
                 Container(
-                  margin: const EdgeInsets.fromLTRB(0, 20, 10, 0),
+                  margin: const EdgeInsets.fromLTRB(0, 20, 0, 0),
                   alignment: Alignment.centerRight,
                   child: TextButton(
-                    child: const Text('Forgot Password?'),
+                    child: const Text(
+                      'Forgot Password?',
+                      style: TextStyle(fontSize: 16),
+                    ),
                     onPressed: () {},
                     style: TextButton.styleFrom(
                       primary: const Color.fromRGBO(173, 37, 51, 1),
+                      padding: const EdgeInsets.all(0),
                     ),
                   ),
                 ),
                 Container(
                   margin: const EdgeInsets.fromLTRB(0, 30, 0, 0),
                   width: 250,
+                  height: 40,
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
                       alignment: Alignment.center,
