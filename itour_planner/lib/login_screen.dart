@@ -198,7 +198,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       Navigator.pushReplacement(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => OTP(_email),
+                          builder: (context) => OTP(_emailController.text),
                         ),
                       );
                     },
@@ -261,3 +261,4 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 }
+
