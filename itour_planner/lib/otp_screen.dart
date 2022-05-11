@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
+import 'package:itour_planner/verified_screen.dart';
 
 class OTP extends StatefulWidget {
   const OTP(this._email, {Key? key}) : super(key: key);
@@ -98,7 +99,14 @@ class _OTPState extends State<OTP> {
                       onPrimary: Colors.white,
                       shape: const StadiumBorder(),
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const VerifiedScreen(),
+                        ),
+                      );
+                    },
                     child: const Text(
                       'Verify',
                       style: TextStyle(
