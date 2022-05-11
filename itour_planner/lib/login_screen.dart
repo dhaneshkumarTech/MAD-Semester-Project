@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:itour_planner/reset_password.dart';
+import 'package:flutter_signin_button/flutter_signin_button.dart';
 import './sign_up.dart';
 import './otp_screen.dart';
 
@@ -49,13 +50,16 @@ class _LoginScreenState extends State<LoginScreen> {
       body: Column(
         children: [
           Container(
+            padding: const EdgeInsets.only(
+              top: 100,
+            ),
             width: double.infinity,
             height: 250,
             child: SizedBox(
               height: 60,
               child: Image.asset('assets/images/app_logo.png'),
             ),
-            alignment: Alignment.center,
+            alignment: Alignment.topCenter,
             decoration: const BoxDecoration(
               color: Color.fromRGBO(173, 37, 51, 1),
               gradient: LinearGradient(
@@ -70,7 +74,7 @@ class _LoginScreenState extends State<LoginScreen> {
           ),
           Container(
             width: double.infinity,
-            height: 420,
+            height: 450,
             margin: const EdgeInsets.fromLTRB(20, 0, 20, 0),
             decoration: const BoxDecoration(
               borderRadius: BorderRadius.all(
@@ -160,7 +164,6 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                 ),
                 Container(
-                  margin: const EdgeInsets.fromLTRB(0, 15, 0, 0),
                   alignment: Alignment.centerRight,
                   child: TextButton(
                     child: const Text(
@@ -181,8 +184,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                   ),
                 ),
-                Container(
-                  margin: const EdgeInsets.fromLTRB(0, 30, 0, 0),
+                SizedBox(
                   width: 150,
                   height: 50,
                   child: ElevatedButton(
@@ -207,7 +209,15 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                 ),
                 Container(
-                  margin: const EdgeInsets.fromLTRB(0, 20, 0, 0),
+                  margin: const EdgeInsets.only(top: 20),
+                  child: SignInButton(
+                    Buttons.Google,
+                    text: "Sign In with Google",
+                    onPressed: () {},
+                  ),
+                ),
+                Container(
+                  margin: const EdgeInsets.fromLTRB(0, 10, 0, 0),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
@@ -235,7 +245,10 @@ class _LoginScreenState extends State<LoginScreen> {
             ),
           ),
           Container(
-            margin: const EdgeInsets.fromLTRB(20, 20, 20, 0),
+            margin: const EdgeInsets.only(
+              left: 20,
+              right: 20,
+            ),
             alignment: Alignment.bottomRight,
             width: double.infinity,
             child: SizedBox(

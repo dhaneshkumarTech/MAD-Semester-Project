@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_signin_button/flutter_signin_button.dart';
 import './login_screen.dart';
 
 class SignUp extends StatefulWidget {
@@ -44,7 +45,7 @@ class _SignUpState extends State<SignUp> {
           ),
           Container(
             width: double.infinity,
-            height: 420,
+            height: 450,
             margin: const EdgeInsets.fromLTRB(20, 0, 20, 0),
             decoration: const BoxDecoration(
               borderRadius: BorderRadius.all(
@@ -55,7 +56,7 @@ class _SignUpState extends State<SignUp> {
               mainAxisAlignment: MainAxisAlignment.start,
               children: <Widget>[
                 Container(
-                  margin: const EdgeInsets.fromLTRB(5, 30, 5, 0),
+                  margin: const EdgeInsets.fromLTRB(5, 15, 5, 0),
                   child: TextFormField(
                     validator: null,
                     controller: null,
@@ -91,7 +92,7 @@ class _SignUpState extends State<SignUp> {
                   ),
                 ),
                 Container(
-                  margin: const EdgeInsets.fromLTRB(5, 20, 5, 0),
+                  margin: const EdgeInsets.fromLTRB(5, 15, 5, 0),
                   child: TextFormField(
                     validator: null,
                     obscureText: _isHidden,
@@ -134,7 +135,7 @@ class _SignUpState extends State<SignUp> {
                   ),
                 ),
                 Container(
-                  margin: const EdgeInsets.fromLTRB(5, 20, 5, 0),
+                  margin: const EdgeInsets.fromLTRB(5, 15, 5, 0),
                   child: TextFormField(
                     validator: null,
                     obscureText: _isHidden,
@@ -177,7 +178,7 @@ class _SignUpState extends State<SignUp> {
                   ),
                 ),
                 Container(
-                  margin: const EdgeInsets.fromLTRB(0, 30, 0, 0),
+                  margin: const EdgeInsets.fromLTRB(0, 20, 0, 0),
                   width: 150,
                   height: 50,
                   child: ElevatedButton(
@@ -195,6 +196,14 @@ class _SignUpState extends State<SignUp> {
                   ),
                 ),
                 Container(
+                  margin: const EdgeInsets.only(top: 20),
+                  child: SignInButton(
+                    Buttons.Google,
+                    text: "Sign Up with Google",
+                    onPressed: () {},
+                  ),
+                ),
+                Container(
                   margin: const EdgeInsets.fromLTRB(0, 20, 0, 0),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -205,7 +214,7 @@ class _SignUpState extends State<SignUp> {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => LoginScreen(),
+                              builder: (context) => const LoginScreen(),
                             ),
                           );
                         },
@@ -223,7 +232,7 @@ class _SignUpState extends State<SignUp> {
             ),
           ),
           Container(
-            margin: const EdgeInsets.fromLTRB(20, 20, 20, 0),
+            margin: const EdgeInsets.fromLTRB(20, 0, 20, 0),
             alignment: Alignment.bottomRight,
             width: double.infinity,
             child: SizedBox(

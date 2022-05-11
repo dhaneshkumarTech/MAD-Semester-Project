@@ -20,7 +20,7 @@ class SplashScreen extends StatelessWidget {
       ),
       nextScreen: const LoginScreen(),
       backgroundColor: const Color.fromRGBO(173, 37, 51, 1),
-      splashTransition: SplashTransition.decoratedBoxTransition,
+      splashTransition: SplashTransition.scaleTransition,
       duration: 1000,
       pageTransitionType: PageTransitionType.bottomToTop,
       animationDuration: const Duration(seconds: 1),
