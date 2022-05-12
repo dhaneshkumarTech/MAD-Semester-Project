@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+<<<<<<< HEAD
 import 'package:firebase_core/firebase_core.dart';
 import './splash_screen.dart';
+=======
+import 'SplashScreen/splash_screen.dart';
+>>>>>>> 91a2947f50b52f48844cc1a7131cf647affbafcc
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -16,7 +20,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      home: SplashScreen(),
+      home: Directionality(
+          textDirection: TextDirection.rtl, child: SplashScreen()),
       debugShowCheckedModeBanner: false,
     );
   }
