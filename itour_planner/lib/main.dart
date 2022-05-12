@@ -9,7 +9,7 @@ Future<void> main() async {
 }
 
 void newFunc() {
- 
+  print("Hello");
 }
 
 class MyApp extends StatelessWidget {
