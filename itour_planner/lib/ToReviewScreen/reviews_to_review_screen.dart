@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:itour_planner/ToReviewScreen/model/to_review.dart';
 import './toReview_container.dart';
+import '../ReviewedScreen/reviews_reviewed_screen.dart';
 
 class ReviewsToReviewScreen extends StatefulWidget {
   const ReviewsToReviewScreen({Key? key}) : super(key: key);
@@ -37,40 +38,30 @@ class _ReviewsReviewedScreenState extends State<ReviewsToReviewScreen> {
         backgroundColor: themeColor,
       ),
       body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Container(
             margin: const EdgeInsets.all(20),
-            child: Row(
-              children: <Widget>[
-                Container(
-                  margin: const EdgeInsets.only(right: 5),
-                  child: OutlinedButton(
-                    child: const Text('Reviewed'),
-                    onPressed: () {},
-                    style: TextButton.styleFrom(
-                      primary: themeColor,
-                      side: BorderSide(
-                        color: themeColor,
-                        width: 2.0,
-                      ),
+            child: Container(
+              margin: const EdgeInsets.only(right: 5),
+              child: OutlinedButton(
+                child: const Text('Reviewed'),
+                onPressed: () {
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const ReviewsReviewedScreen(),
                     ),
+                  );
+                },
+                style: TextButton.styleFrom(
+                  primary: themeColor,
+                  side: BorderSide(
+                    color: themeColor,
+                    width: 2.0,
                   ),
                 ),
-                Container(
-                  margin: const EdgeInsets.only(left: 5),
-                  child: OutlinedButton(
-                    child: const Text('To Review'),
-                    onPressed: () {},
-                    style: TextButton.styleFrom(
-                      primary: themeColor,
-                      side: BorderSide(
-                        color: themeColor,
-                        width: 2.0,
-                      ),
-                    ),
-                  ),
-                ),
-              ],
+              ),
             ),
           ),
           Container(
