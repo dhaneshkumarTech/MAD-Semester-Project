@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_signin_button/flutter_signin_button.dart';
-import './login_screen.dart';
+import 'package:itour_planner/PasswordUpdated/password_updated.dart';
+import '../LoginScreen/login_screen.dart';
 
-class SignUp extends StatefulWidget {
-  const SignUp({Key? key}) : super(key: key);
+class ResetPassword extends StatefulWidget {
+  const ResetPassword({Key? key}) : super(key: key);
 
   @override
-  State<SignUp> createState() => _SignUpState();
+  State<ResetPassword> createState() => _SignUpState();
 }
 
-class _SignUpState extends State<SignUp> {
+class _SignUpState extends State<ResetPassword> {
   bool _isHidden = true;
 
   void _togglePasswordView() {
@@ -45,7 +45,7 @@ class _SignUpState extends State<SignUp> {
           ),
           Container(
             width: double.infinity,
-            height: 450,
+            height: 420,
             margin: const EdgeInsets.fromLTRB(20, 0, 20, 0),
             decoration: const BoxDecoration(
               borderRadius: BorderRadius.all(
@@ -56,7 +56,17 @@ class _SignUpState extends State<SignUp> {
               mainAxisAlignment: MainAxisAlignment.start,
               children: <Widget>[
                 Container(
-                  margin: const EdgeInsets.fromLTRB(5, 15, 5, 0),
+                  margin: const EdgeInsets.fromLTRB(0, 30, 0, 0),
+                  child: const Text(
+                    'Reset Password',
+                    style: TextStyle(
+                        fontSize: 30,
+                        color: Color.fromRGBO(173, 37, 51, 1),
+                        fontWeight: FontWeight.bold),
+                  ),
+                ),
+                Container(
+                  margin: const EdgeInsets.fromLTRB(5, 30, 5, 0),
                   child: TextFormField(
                     validator: null,
                     controller: null,
@@ -92,7 +102,7 @@ class _SignUpState extends State<SignUp> {
                   ),
                 ),
                 Container(
-                  margin: const EdgeInsets.fromLTRB(5, 15, 5, 0),
+                  margin: const EdgeInsets.fromLTRB(5, 20, 5, 0),
                   child: TextFormField(
                     validator: null,
                     obscureText: _isHidden,
@@ -135,7 +145,7 @@ class _SignUpState extends State<SignUp> {
                   ),
                 ),
                 Container(
-                  margin: const EdgeInsets.fromLTRB(5, 15, 5, 0),
+                  margin: const EdgeInsets.fromLTRB(5, 20, 5, 0),
                   child: TextFormField(
                     validator: null,
                     obscureText: _isHidden,
@@ -178,7 +188,7 @@ class _SignUpState extends State<SignUp> {
                   ),
                 ),
                 Container(
-                  margin: const EdgeInsets.fromLTRB(0, 20, 0, 0),
+                  margin: const EdgeInsets.fromLTRB(0, 30, 0, 0),
                   width: 150,
                   height: 50,
                   child: ElevatedButton(
@@ -188,51 +198,25 @@ class _SignUpState extends State<SignUp> {
                       onPrimary: Colors.white,
                       shape: const StadiumBorder(),
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const PasswordUpdated(),
+                        ),
+                      );
+                    },
                     child: const Text(
-                      'SIGN UP',
+                      'RESET',
                       style: TextStyle(fontWeight: FontWeight.bold),
                     ),
                   ),
                 ),
-                Container(
-                  margin: const EdgeInsets.only(top: 20),
-                  child: SignInButton(
-                    Buttons.Google,
-                    text: "Sign Up with Google",
-                    onPressed: () {},
-                  ),
-                ),
-                Container(
-                  margin: const EdgeInsets.fromLTRB(0, 20, 0, 0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      const Text("Already have an account?"),
-                      TextButton(
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => const LoginScreen(),
-                            ),
-                          );
-                        },
-                        child: const Text(
-                          'Log in',
-                        ),
-                        style: TextButton.styleFrom(
-                          primary: const Color.fromRGBO(173, 37, 51, 1),
-                        ),
-                      ),
-                    ],
-                  ),
-                )
               ],
             ),
           ),
           Container(
-            margin: const EdgeInsets.fromLTRB(20, 0, 20, 0),
+            margin: const EdgeInsets.fromLTRB(20, 20, 20, 0),
             alignment: Alignment.bottomRight,
             width: double.infinity,
             child: SizedBox(

@@ -1,34 +1,30 @@
 import 'package:flutter/material.dart';
-import 'package:itour_planner/ReviewsScreen/model/review.dart';
-import './review_container.dart';
+import 'package:itour_planner/ToReviewScreen/model/to_review.dart';
+import './toReview_container.dart';
 
-class ReviewsReviewedScreen extends StatefulWidget {
-  const ReviewsReviewedScreen({Key? key}) : super(key: key);
+class ReviewsToReviewScreen extends StatefulWidget {
+  const ReviewsToReviewScreen({Key? key}) : super(key: key);
 
   @override
-  State<ReviewsReviewedScreen> createState() => _ReviewsReviewedScreenState();
+  State<ReviewsToReviewScreen> createState() => _ReviewsReviewedScreenState();
 }
 
-class _ReviewsReviewedScreenState extends State<ReviewsReviewedScreen> {
+class _ReviewsReviewedScreenState extends State<ReviewsToReviewScreen> {
   Color themeColor = const Color.fromRGBO(173, 37, 51, 1);
 
-  final List<Review> _reviews = [
-    Review(
+  final List<ToReview> _reviews = [
+    ToReview(
       'Abdullah\'s Trip',
       'Damn-e-Koh',
       3,
-      '25 Nov, 4:51am',
-      'A panoramic view of capital of Pakistan',
-      'Great View',
+      'Islamabad',
       'assets/ReviewPics/damn_e_koh.png',
     ),
-    Review(
+    ToReview(
       'Lahore Trip',
       'Fortress',
       3,
-      '21 Jan, 4:51am',
-      'City of Lights',
-      'Great View',
+      'Lahore',
       'assets/ReviewPics/fortres.png',
     ),
   ];
@@ -83,13 +79,11 @@ class _ReviewsReviewedScreenState extends State<ReviewsReviewedScreen> {
             child: ListView.builder(
               scrollDirection: Axis.vertical,
               itemCount: _reviews.length,
-              itemBuilder: (context, index) => ReviewContainer(
+              itemBuilder: (context, index) => ToReviewContainer(
                 _reviews[index].tripName,
                 _reviews[index].place,
                 _reviews[index].rating,
-                _reviews[index].date,
-                _reviews[index].title,
-                _reviews[index].description,
+                _reviews[index].location,
                 _reviews[index].picture,
               ),
             ),
