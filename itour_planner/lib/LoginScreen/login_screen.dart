@@ -195,7 +195,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       shape: const StadiumBorder(),
                     ),
                     onPressed: () {
-                      Navigator.pushReplacement(
+                      Navigator.push(
                         context,
                         MaterialPageRoute(
                           builder: (context) => OTP(_emailController.text),
