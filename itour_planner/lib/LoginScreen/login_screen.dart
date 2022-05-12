@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:itour_planner/reset_password.dart';
+import 'package:itour_planner/ResetPassword/reset_password.dart';
 import 'package:flutter_signin_button/flutter_signin_button.dart';
-import './sign_up.dart';
-import './otp_screen.dart';
+import '../SignUpScreen/sign_up.dart';
+import '../otpScreen/otp_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
