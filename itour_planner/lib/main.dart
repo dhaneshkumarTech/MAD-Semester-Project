@@ -13,7 +13,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      home: SplashScreen(),
+      home: Directionality(
+          textDirection: TextDirection.rtl, child: SplashScreen()),
       debugShowCheckedModeBanner: false,
     );
   }

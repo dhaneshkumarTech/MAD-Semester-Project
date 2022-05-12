@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import './notification.dart';
+import 'package:itour_planner/NotificationScreen/notification_container.dart';
+import 'model/notification.dart';
 
 class NotificationScreen extends StatefulWidget {
   const NotificationScreen({Key? key}) : super(key: key);
@@ -11,7 +12,31 @@ class NotificationScreen extends StatefulWidget {
 class _NotificationScreenState extends State<NotificationScreen> {
   Color themeColor = const Color.fromRGBO(173, 37, 51, 1);
 
-  List<Notifications> notifications = [
+  final List<Notifications> _notifications = [
+    Notifications(
+      'Today, 4:51 am',
+      'Your section trip is going to start from tomorrow. And your Alhajmir check in date is 27 Nov. You have to notify the itour when you will go for check in.',
+    ),
+    Notifications(
+      'Today, 4:51 am',
+      'Your section trip is going to start from tomorrow. And your Alhajmir check in date is 27 Nov. You have to notify the itour when you will go for check in.',
+    ),
+    Notifications(
+      'Today, 4:51 am',
+      'Your section trip is going to start from tomorrow. And your Alhajmir check in date is 27 Nov. You have to notify the itour when you will go for check in.',
+    ),
+    Notifications(
+      'Today, 4:51 am',
+      'Your section trip is going to start from tomorrow. And your Alhajmir check in date is 27 Nov. You have to notify the itour when you will go for check in.',
+    ),
+    Notifications(
+      'Today, 4:51 am',
+      'Your section trip is going to start from tomorrow. And your Alhajmir check in date is 27 Nov. You have to notify the itour when you will go for check in.',
+    ),
+    Notifications(
+      'Today, 4:51 am',
+      'Your section trip is going to start from tomorrow. And your Alhajmir check in date is 27 Nov. You have to notify the itour when you will go for check in.',
+    ),
     Notifications(
       'Today, 4:51 am',
       'Your section trip is going to start from tomorrow. And your Alhajmir check in date is 27 Nov. You have to notify the itour when you will go for check in.',
@@ -31,41 +56,13 @@ class _NotificationScreenState extends State<NotificationScreen> {
       ),
       body: Container(
         margin: const EdgeInsets.only(
-          top: 50,
+          top: 30,
           left: 20,
           right: 20,
         ),
         child: ListView.builder(
-          itemCount: notifications.length,
-          itemBuilder: (context, index) {
-            return Padding(
-              padding: const EdgeInsets.symmetric(
-                vertical: 5.0,
-                horizontal: 4.0,
-              ),
-              child: Card(
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: ListTile(
-                    onTap: () {},
-                    title: Text(
-                      notifications[index].dateTime,
-                      style: TextStyle(
-                        foreground: Paint()..color = themeColor,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    subtitle: Text(
-                      notifications[index].description,
-                      style: TextStyle(
-                        foreground: Paint()..color = Colors.black,
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-            );
-          },
+          itemCount: _notifications.length,
+          itemBuilder: (context, index) => NotificationContainer(_notifications[index].dateTime, _notifications[index].description),
         ),
       ),
       bottomNavigationBar: BottomNavigationBar(
