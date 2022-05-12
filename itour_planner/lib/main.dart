@@ -1,10 +1,6 @@
 import 'package:flutter/material.dart';
-<<<<<<< HEAD
 import 'package:firebase_core/firebase_core.dart';
-import './splash_screen.dart';
-=======
-import 'SplashScreen/splash_screen.dart';
->>>>>>> 91a2947f50b52f48844cc1a7131cf647affbafcc
+import './SplashScreen/splash_screen.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -12,7 +8,9 @@ Future<void> main() async {
   runApp(const MyApp());
 }
 
-void newFunc() {}
+void newFunc() {
+ 
+}
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
