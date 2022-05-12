@@ -35,6 +35,15 @@ class _ReviewsReviewedScreenState extends State<ReviewsToReviewScreen> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Reviews'),
+        leading: Builder(
+          builder: (BuildContext context) {
+            return IconButton(
+              icon: const Icon(Icons.arrow_back_ios),
+              onPressed: () {},
+              tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,
+            );
+          },
+        ),
         backgroundColor: themeColor,
       ),
       body: Column(
@@ -44,6 +53,7 @@ class _ReviewsReviewedScreenState extends State<ReviewsToReviewScreen> {
             margin: const EdgeInsets.all(20),
             child: Container(
               margin: const EdgeInsets.only(right: 5),
+              alignment: Alignment.centerRight,
               child: OutlinedButton(
                 child: const Text('Reviewed'),
                 onPressed: () {

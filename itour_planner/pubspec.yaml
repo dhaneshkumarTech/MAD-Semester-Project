@@ -38,6 +38,7 @@ dependencies:
   flutter_otp_text_field: ^1.0.0
   flutter_signin_button: ^2.0.0
   flutter_rating_bar: ^4.0.0
+  image_picker: ^0.8.5+2
 
 dev_dependencies:
   flutter_test:
