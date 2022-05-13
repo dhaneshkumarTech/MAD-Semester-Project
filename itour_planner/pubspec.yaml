@@ -39,6 +39,7 @@ dependencies:
   flutter_signin_button: ^2.0.0
   flutter_rating_bar: ^4.0.0
   image_picker: ^0.8.5+2
+  curved_navigation_bar: ^1.0.3
 
 dev_dependencies:
   flutter_test:
@@ -68,6 +69,7 @@ flutter:
     - assets/BottomAppBarIcons/
     - assets/ReviewPics/
     - assets/PlanPics/
+    - assets/BottomAppBarIcons/
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

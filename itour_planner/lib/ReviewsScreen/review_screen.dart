@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:itour_planner/BottomNavigationBar/bottom_navigation_bar.dart';
+import 'package:itour_planner/FloatingActionButton/floating_action_button.dart';
 import 'package:itour_planner/ReviewsScreen/ReviewedScreen/model/review.dart';
 import 'package:itour_planner/ReviewsScreen/ToReviewScreen/model/to_review.dart';
 import 'package:itour_planner/ReviewsScreen/ToReviewScreen/toReview_container.dart';
@@ -91,84 +93,53 @@ class _ReviewsReviewedScreenState extends State<ReviewsReviewedScreen> {
           ),
         ),
         body: Container(
-          margin: const EdgeInsets.fromLTRB(20, 40, 20, 0),
-          height: double.infinity,
-          child: TabBarView(
-            children: <Widget>[
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  SizedBox(
-                    height: 500,
-                    child: ListView.builder(
-                      scrollDirection: Axis.vertical,
-                      itemCount: _reviewed.length,
-                      itemBuilder: (context, index) => ReviewContainer(
-                        _reviewed[index].tripName,
-                        _reviewed[index].place,
-                        _reviewed[index].rating,
-                        _reviewed[index].date,
-                        _reviewed[index].title,
-                        _reviewed[index].description,
-                        _reviewed[index].picture,
+          margin: const EdgeInsets.only(top: 40, left: 20, right: 20),
+          child: SizedBox(
+            height: 540,
+            child: TabBarView(
+              children: <Widget>[
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    SizedBox(
+                      height: 540,
+                      child: ListView.builder(
+                        scrollDirection: Axis.vertical,
+                        itemCount: _reviewed.length,
+                        itemBuilder: (context, index) => ReviewContainer(
+                          _reviewed[index].tripName,
+                          _reviewed[index].place,
+                          _reviewed[index].rating,
+                          _reviewed[index].date,
+                          _reviewed[index].title,
+                          _reviewed[index].description,
+                          _reviewed[index].picture,
+                        ),
                       ),
                     ),
-                  ),
-                ],
-              ),
-              SizedBox(
-                height: 500,
-                child: ListView.builder(
-                  scrollDirection: Axis.vertical,
-                  itemCount: _toReviews.length,
-                  itemBuilder: (context, index) => ToReviewContainer(
-                    _toReviews[index].tripName,
-                    _toReviews[index].place,
-                    _toReviews[index].rating,
-                    _toReviews[index].location,
-                    _toReviews[index].picture,
+                  ],
+                ),
+                SizedBox(
+                  height: 540,
+                  child: ListView.builder(
+                    scrollDirection: Axis.vertical,
+                    itemCount: _toReviews.length,
+                    itemBuilder: (context, index) => ToReviewContainer(
+                      _toReviews[index].tripName,
+                      _toReviews[index].place,
+                      _toReviews[index].rating,
+                      _toReviews[index].location,
+                      _toReviews[index].picture,
+                    ),
                   ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
-        bottomNavigationBar: BottomNavigationBar(
-          type: BottomNavigationBarType.fixed,
-          elevation: 10,
-          items: <BottomNavigationBarItem>[
-            BottomNavigationBarItem(
-              icon: Icon(
-                Icons.home,
-                color: themeColor,
-              ),
-              label: 'Home',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(
-                Icons.search,
-                color: themeColor,
-              ),
-              label: 'Search',
-            ),
-            BottomNavigationBarItem(
-              icon: ImageIcon(
-                const AssetImage("assets/BottomAppBarIcons/plan.png"),
-                color: themeColor,
-              ),
-              label: 'Plan',
-            ),
-            BottomNavigationBarItem(
-              icon: ImageIcon(
-                const AssetImage("assets/BottomAppBarIcons/booking.png"),
-                color: themeColor,
-              ),
-              label: 'Booking',
-            ),
-          ],
-          selectedItemColor: themeColor,
-          onTap: null,
-        ),
+        floatingActionButton: const FloatingActionButtonContainer(),
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+        bottomNavigationBar: const BottomNavigationBarContainer(),
       ),
     );
   }
