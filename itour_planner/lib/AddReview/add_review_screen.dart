@@ -18,21 +18,9 @@ class _AddReviewScreenState extends State<AddReviewScreen> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Add Review'),
-        leading: Builder(
-          builder: (BuildContext context) {
-            return IconButton(
-              icon: const Icon(Icons.arrow_back_ios),
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const ReviewsToReviewScreen(),
-                  ),
-                );
-              },
-              tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,
-            );
-          },
+        leading: GestureDetector(
+          child: const Icon(Icons.arrow_back_ios),
+          onTap: () {},
         ),
         backgroundColor: themeColor,
       ),
@@ -158,7 +146,7 @@ class _AddReviewScreenState extends State<AddReviewScreen> {
                     height: 110,
                     margin: const EdgeInsets.only(top: 10),
                     padding: const EdgeInsets.all(0),
-                    decoration: BoxDecoration(                      
+                    decoration: BoxDecoration(
                       border: Border.all(
                         color: themeColor,
                         width: 1,
