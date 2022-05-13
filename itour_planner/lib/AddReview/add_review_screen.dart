@@ -158,11 +158,12 @@ class _AddReviewScreenState extends State<AddReviewScreen> {
                     height: 110,
                     margin: const EdgeInsets.only(top: 10),
                     padding: const EdgeInsets.all(0),
-                    decoration: BoxDecoration(
-                        border: Border.all(
-                      color: themeColor,
-                      width: 1,
-                    )),
+                    decoration: BoxDecoration(                      
+                      border: Border.all(
+                        color: themeColor,
+                        width: 1,
+                      ),
+                    ),
                     child: TextField(
                       keyboardType: TextInputType.multiline,
                       maxLines: null,
