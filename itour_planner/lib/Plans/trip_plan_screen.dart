@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:itour_planner/Plans/model/trip_plan.dart';
 import 'package:itour_planner/Plans/plan_container.dart';
-import 'package:itour_planner/ReviewedScreen/reviews_reviewed_screen.dart';
+import 'package:itour_planner/ReviewsScreen/review_screen.dart';
 
 class TripsPlan extends StatefulWidget {
   const TripsPlan({Key? key}) : super(key: key);
@@ -39,7 +39,7 @@ class _TripsPlanState extends State<TripsPlan> {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      initialIndex: 1,
+      initialIndex: 0,
       length: 3,
       child: Scaffold(
         appBar: AppBar(
