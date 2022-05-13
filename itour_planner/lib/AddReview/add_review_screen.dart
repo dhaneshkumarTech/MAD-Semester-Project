@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:itour_planner/ToReviewScreen/reviews_to_review_screen.dart';
 import './image_picker_button.dart';
 
 class AddReviewScreen extends StatefulWidget {
@@ -21,7 +22,14 @@ class _AddReviewScreenState extends State<AddReviewScreen> {
           builder: (BuildContext context) {
             return IconButton(
               icon: const Icon(Icons.arrow_back_ios),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const ReviewsToReviewScreen(),
+                  ),
+                );
+              },
               tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,
             );
           },
