@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:itour_planner/BottomNavigationBar/bottom_navigation_bar.dart';
+
+import 'package:itour_planner/FloatingActionButton/floating_action_button.dart';
 import 'package:itour_planner/DashBoardScreen/main_category_button.dart';
 import 'package:itour_planner/DashBoardScreen/model/category.dart';
 import 'package:itour_planner/DashBoardScreen/model/trending_card.dart';
 import 'package:itour_planner/DashBoardScreen/place_category_button.dart';
 import 'package:itour_planner/DashBoardScreen/trending_image_container.dart';
-import 'package:itour_planner/FloatingActionButton/floating_action_button.dart';
 import 'package:itour_planner/NotificationScreen/notification_screen.dart';
+import 'package:itour_planner/Profile/profileScreen.dart';
 
 class DashboardScreen extends StatefulWidget {
   const DashboardScreen({Key? key}) : super(key: key);
@@ -49,20 +51,6 @@ class _DashboardScreenState extends State<DashboardScreen> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Row(
-                    children: [
-                      //profile Picture
-                      Card(
-                        elevation: 5,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(30),
-                        ),
-                        child: SizedBox(
-                          height: 55,
-                          width: 55,
-                          child: Icon(
-                            Icons.favorite,
-                            color: themeColor,
                           ),
                         ),
                         margin: const EdgeInsets.only(right: 10),
