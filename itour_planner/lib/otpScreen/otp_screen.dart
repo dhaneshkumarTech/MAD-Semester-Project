@@ -14,14 +14,6 @@ class OTP extends StatefulWidget {
 }
 
 class _OTPState extends State<OTP> {
-  String? _otp;
-
-  void _getOTP(value) {
-    setState(() {
-      _otp = value;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -83,9 +75,7 @@ class _OTPState extends State<OTP> {
                     focusedBorderColor: const Color.fromRGBO(173, 37, 51, 1),
                     showFieldAsBox: true,
                     borderWidth: 2.0,
-                    onSubmit: (String verificationCode) {
-                      _getOTP(verificationCode);
-                    }, // end onSubmit
+                    onSubmit: (String verificationCode) {}, // end onSubmit
                   ),
                 ),
                 Container(

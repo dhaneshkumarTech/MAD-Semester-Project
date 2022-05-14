@@ -49,5 +49,7 @@
 	<string>To use user profile image from gallery</string>
 	<key>NSMicrophoneUsageDescription</key>
 	<string>To captuer audio for image picker plug in</string>
+	<key>CADisableMinimumFrameDurationOnPhone</key>
+	<true/>
 </dict>
 </plist>

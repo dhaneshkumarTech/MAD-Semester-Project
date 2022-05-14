@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:itour_planner/ReviewedScreen/model/review.dart';
-import 'reviewed_container.dart';
-import '../ToReviewScreen/reviews_to_review_screen.dart';
+import '../ReviewsScreen/ReviewedScreen/model/review.dart';
+import '../ReviewsScreen/ReviewedScreen/reviewed_container.dart';
+//import '../ToReviewScreen/reviews_to_review_screen.dart';
 
 class ReviewsReviewedScreen extends StatefulWidget {
   const ReviewsReviewedScreen({Key? key}) : super(key: key);
@@ -17,7 +17,7 @@ class _ReviewsReviewedScreenState extends State<ReviewsReviewedScreen> {
     Review(
       'Abdullah\'s Trip',
       'Damn-e-Koh',
-      3,
+      3,  
       '25 Nov, 4:51am',
       'A panoramic view of capital of Pakistan',
       'Great View',
@@ -39,15 +39,6 @@ class _ReviewsReviewedScreenState extends State<ReviewsReviewedScreen> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Reviews'),
-        leading: Builder(
-          builder: (BuildContext context) {
-            return IconButton(
-              icon: const Icon(Icons.arrow_back_ios),
-              onPressed: () {},
-              tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,
-            );
-          },
-        ),
         backgroundColor: themeColor,
       ),
       body: Column(
@@ -57,16 +48,15 @@ class _ReviewsReviewedScreenState extends State<ReviewsReviewedScreen> {
             margin: const EdgeInsets.all(20),
             child: Container(
               margin: const EdgeInsets.only(right: 5),
-              alignment: Alignment.centerRight,
               child: OutlinedButton(
                 child: const Text('To Review'),
                 onPressed: () {
-                  Navigator.pushReplacement(
+                  /* Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(
                       builder: (context) => const ReviewsToReviewScreen(),
                     ),
-                  );
+                  ); */
                 },
                 style: TextButton.styleFrom(
                   primary: themeColor,

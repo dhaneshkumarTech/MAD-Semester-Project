@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:itour_planner/BottomNavigationBar/bottom_navigation_bar.dart';
+import 'package:itour_planner/FloatingActionButton/floating_action_button.dart';
 import 'package:itour_planner/Plans/model/trip_plan.dart';
 import 'package:itour_planner/Plans/plan_container.dart';
-import 'package:itour_planner/ReviewedScreen/reviews_reviewed_screen.dart';
+import 'package:itour_planner/ReviewsScreen/review_screen.dart';
 
 class TripsPlan extends StatefulWidget {
   const TripsPlan({Key? key}) : super(key: key);
@@ -39,7 +41,7 @@ class _TripsPlanState extends State<TripsPlan> {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      initialIndex: 1,
+      initialIndex: 0,
       length: 3,
       child: Scaffold(
         appBar: AppBar(
@@ -100,42 +102,9 @@ class _TripsPlanState extends State<TripsPlan> {
             ],
           ),
         ),
-        bottomNavigationBar: BottomNavigationBar(
-          type: BottomNavigationBarType.fixed,
-          elevation: 10,
-          items: <BottomNavigationBarItem>[
-            BottomNavigationBarItem(
-              icon: Icon(
-                Icons.home,
-                color: themeColor,
-              ),
-              label: 'Home',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(
-                Icons.search,
-                color: themeColor,
-              ),
-              label: 'Search',
-            ),
-            BottomNavigationBarItem(
-              icon: ImageIcon(
-                const AssetImage("assets/BottomAppBarIcons/plan.png"),
-                color: themeColor,
-              ),
-              label: 'Plan',
-            ),
-            BottomNavigationBarItem(
-              icon: ImageIcon(
-                const AssetImage("assets/BottomAppBarIcons/booking.png"),
-                color: themeColor,
-              ),
-              label: 'Booking',
-            ),
-          ],
-          selectedItemColor: themeColor,
-          onTap: null,
-        ),
+        floatingActionButton: const FloatingActionButtonContainer(),
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+        bottomNavigationBar: const BottomNavigationBarContainer(),
       ),
     );
   }

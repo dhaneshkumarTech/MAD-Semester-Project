@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:itour_planner/FirebaseServices/authentication_service.dart';
 import 'package:itour_planner/ResetPassword/reset_password.dart';
 import 'package:flutter_signin_button/flutter_signin_button.dart';
+import 'package:provider/provider.dart';
 import '../SignUpScreen/sign_up.dart';
 import '../otpScreen/otp_screen.dart';
 
@@ -13,10 +15,10 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
   bool _isHidden = true;
-  String _email = "";
-  final _formKey = GlobalKey<FormState>();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
+
+  bool loading = false; // for loading indicator
 
   void _togglePasswordView() {
     setState(() {
@@ -25,21 +27,10 @@ class _LoginScreenState extends State<LoginScreen> {
   }
 
   String? _validateEmail(value) {
-    _email = value;
     if (value!.isEmpty) return 'Enter email address';
     final regex = RegExp(r'^.+@[a-zA-Z]+\.{1}[a-zA-Z]+(\.{0,1}[a-zA-Z]+)$');
     if (!regex.hasMatch(value)) {
       return 'Enter a valid email address';
-    }
-    return null;
-  }
-
-  String? _validatePassword(value) {
-    if (value!.isEmpty) return 'Enter password';
-    final regex =
-        RegExp(r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$');
-    if (!regex.hasMatch(value)) {
-      return 'Password must be at least 8 charactes long containing at least one uppercase letter, one number and one special character';
     }
     return null;
   }
@@ -184,29 +175,33 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                   ),
                 ),
-                SizedBox(
+                loading ? CircularProgressIndicator(color: Color.fromARGB(255, 148, 10, 0),) : SizedBox(
                   width: 150,
                   height: 50,
                   child: ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      alignment: Alignment.center,
-                      primary: const Color.fromRGBO(173, 37, 51, 1),
-                      onPrimary: Colors.white,
-                      shape: const StadiumBorder(),
-                    ),
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => OTP(_emailController.text),
+                          style: ElevatedButton.styleFrom(
+                            alignment: Alignment.center,
+                            primary: const Color.fromRGBO(173, 37, 51, 1),
+                            onPrimary: Colors.white,
+                            shape: const StadiumBorder(),
+                          ),
+                          onPressed: () async {
+                            setState(() {
+                              loading = true;
+                            });
+                            await context.read<AuthenticationService>().signIn(
+                                email: _emailController.text,
+                                password: _passwordController.text,
+                                context: context);
+                            setState(() {
+                              loading = false;
+                            });    
+                          },
+                          child: const Text(
+                            'LOG IN',
+                            style: TextStyle(fontWeight: FontWeight.bold),
+                          ),
                         ),
-                      );
-                    },
-                    child: const Text(
-                      'LOG IN',
-                      style: TextStyle(fontWeight: FontWeight.bold),
-                    ),
-                  ),
                 ),
                 Container(
                   margin: const EdgeInsets.only(top: 20),

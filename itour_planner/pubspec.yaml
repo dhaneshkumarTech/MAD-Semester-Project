@@ -37,8 +37,13 @@ dependencies:
   animated_splash_screen: ^1.2.0
   flutter_otp_text_field: ^1.0.0
   flutter_signin_button: ^2.0.0
+  firebase_auth: ^3.3.17
+  firebase_database: ^9.0.13
+  firebase_core: ^1.16.0
+  provider: ^6.0.2
   flutter_rating_bar: ^4.0.0
   image_picker: ^0.8.5+2
+  curved_navigation_bar: ^1.0.3
 
 dev_dependencies:
   flutter_test:
@@ -68,6 +73,9 @@ flutter:
     - assets/BottomAppBarIcons/
     - assets/ReviewPics/
     - assets/PlanPics/
+    - assets/BottomAppBarIcons/
+    - assets/DashboardImages/Icons/
+    - assets/DashboardImages/Images/
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
