@@ -1,6 +1,9 @@
 // ignore_for_file: deprecated_member_use, camel_case_types
 
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import '../FirebaseServices/authentication_service.dart';
 
 class profileScreen extends StatefulWidget {
   const profileScreen({Key? key}) : super(key: key);
@@ -285,7 +288,9 @@ class _profileScreenState extends State<profileScreen> {
                   AspectRatio(
                     aspectRatio: 12,
                     child: RaisedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        context.read<AuthenticationService>().signOut();
+                      },
                       child: const Text(
                         'Sign out',
                         style: TextStyle(
