@@ -3,7 +3,7 @@ import 'package:itour_planner/BottomNavigationBar/bottom_navigation_bar.dart';
 import 'package:itour_planner/FloatingActionButton/floating_action_button.dart';
 import 'package:itour_planner/ReviewsScreen/ReviewedScreen/model/review.dart';
 import 'package:itour_planner/ReviewsScreen/ToReviewScreen/model/to_review.dart';
-import 'package:itour_planner/ReviewsScreen/ToReviewScreen/toReview_container.dart';
+import 'package:itour_planner/ReviewsScreen/ToReviewScreen/to_review_container.dart';
 import 'ReviewedScreen/reviewed_container.dart';
 
 class ReviewsReviewedScreen extends StatefulWidget {

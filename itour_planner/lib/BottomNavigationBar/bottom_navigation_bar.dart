@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
-import 'package:itour_planner/LoginScreen/login_screen.dart';
 
 class BottomNavigationBarContainer extends StatefulWidget {
   const BottomNavigationBarContainer({Key? key}) : super(key: key);
