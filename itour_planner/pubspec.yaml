@@ -74,6 +74,8 @@ flutter:
     - assets/ReviewPics/
     - assets/PlanPics/
     - assets/BottomAppBarIcons/
+    - assets/DashboardImages/Icons/
+    - assets/DashboardImages/Images/
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
