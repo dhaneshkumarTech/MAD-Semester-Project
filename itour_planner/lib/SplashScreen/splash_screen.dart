@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:animated_splash_screen/animated_splash_screen.dart';
-import 'package:itour_planner/ReviewsScreen/review_screen.dart';
+import 'package:itour_planner/DashBoardScreen/dashboard_screen.dart';
 import 'package:page_transition/page_transition.dart';
 
 class SplashScreen extends StatelessWidget {
@@ -18,7 +18,7 @@ class SplashScreen extends StatelessWidget {
           ),
         ],
       ),
-      nextScreen: const ReviewsReviewedScreen(),
+      nextScreen: const DashboardScreen(),
       backgroundColor: const Color.fromRGBO(173, 37, 51, 1),
       splashTransition: SplashTransition.scaleTransition,
       duration: 1000,
