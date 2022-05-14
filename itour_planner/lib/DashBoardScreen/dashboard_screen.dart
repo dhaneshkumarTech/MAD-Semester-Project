@@ -1,5 +1,3 @@
-// ignore_for_file: camel_case_types, avoid_unnecessary_containers
-
 import 'package:flutter/material.dart';
 import 'package:itour_planner/BottomNavigationBar/bottom_navigation_bar.dart';
 import 'package:itour_planner/DashBoardScreen/main_category_button.dart';
@@ -51,34 +49,32 @@ class _DashboardScreenState extends State<DashboardScreen> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Container(
-                    child: Row(
-                      children: [
-                        //profile Picture
-                        Card(
-                          elevation: 5,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(30),
-                          ),
-                          child: SizedBox(
-                            height: 55,
-                            width: 55,
-                            child: Icon(
-                              Icons.favorite,
-                              color: themeColor,
-                            ),
-                          ),
-                          margin: const EdgeInsets.only(right: 10),
+                  Row(
+                    children: [
+                      //profile Picture
+                      Card(
+                        elevation: 5,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(30),
                         ),
-                        //Account Name
-                        const Text(
-                          "Hi, Jennifer",
-                          style: TextStyle(
-                            fontSize: 18,
+                        child: SizedBox(
+                          height: 55,
+                          width: 55,
+                          child: Icon(
+                            Icons.favorite,
+                            color: themeColor,
                           ),
                         ),
-                      ],
-                    ),
+                        margin: const EdgeInsets.only(right: 10),
+                      ),
+                      //Account Name
+                      const Text(
+                        "Hi, Jennifer",
+                        style: TextStyle(
+                          fontSize: 18,
+                        ),
+                      ),
+                    ],
                   ),
                   Card(
                     elevation: 5,
