@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:animated_splash_screen/animated_splash_screen.dart';
+import 'package:itour_planner/DashBoardScreen/dashboard_screen.dart';
 import 'package:itour_planner/main.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:itour_planner/Profile/profileScreen.dart';
@@ -20,7 +21,7 @@ class SplashScreen extends StatelessWidget {
             ),
           ],
         ),
-        nextScreen: const profileScreen(),
+        nextScreen: const DashboardScreen(),
         backgroundColor: const Color.fromRGBO(173, 37, 51, 1),
         splashTransition: SplashTransition.scaleTransition,
         duration: 1000,
