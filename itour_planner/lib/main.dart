@@ -6,7 +6,6 @@ import 'package:provider/provider.dart';
 import './SplashScreen/splash_screen.dart';
 import 'DashBoardScreen/dashboard_screen.dart';
 import 'FirebaseServices/authentication_service.dart';
-import 'UserDashBoard/user_dashboard.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();

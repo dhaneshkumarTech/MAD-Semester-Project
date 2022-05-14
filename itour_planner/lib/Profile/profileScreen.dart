@@ -90,12 +90,12 @@ class _profileScreenState extends State<profileScreen> {
               ],
             ),
             Container(
-              height: 370,
+              height: 360,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   const SizedBox(
-                    height: 20,
+                    height: 14,
                   ),
                   AspectRatio(
                     aspectRatio: 12,
@@ -109,7 +109,7 @@ class _profileScreenState extends State<profileScreen> {
                       color: const Color(0xffC4C4C4),
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
                   AspectRatio(

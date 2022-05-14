@@ -21,7 +21,7 @@ class SplashScreen extends StatelessWidget {
             ),
           ],
         ),
-        nextScreen: const DashboardScreen(),
+        nextScreen: const profileScreen(),
         backgroundColor: const Color.fromRGBO(173, 37, 51, 1),
         splashTransition: SplashTransition.scaleTransition,
         duration: 1000,
