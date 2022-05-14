@@ -13,8 +13,6 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
   bool _isHidden = true;
-  String _email = "";
-  final _formKey = GlobalKey<FormState>();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
 
@@ -25,21 +23,10 @@ class _LoginScreenState extends State<LoginScreen> {
   }
 
   String? _validateEmail(value) {
-    _email = value;
     if (value!.isEmpty) return 'Enter email address';
     final regex = RegExp(r'^.+@[a-zA-Z]+\.{1}[a-zA-Z]+(\.{0,1}[a-zA-Z]+)$');
     if (!regex.hasMatch(value)) {
       return 'Enter a valid email address';
-    }
-    return null;
-  }
-
-  String? _validatePassword(value) {
-    if (value!.isEmpty) return 'Enter password';
-    final regex =
-        RegExp(r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$');
-    if (!regex.hasMatch(value)) {
-      return 'Password must be at least 8 charactes long containing at least one uppercase letter, one number and one special character';
     }
     return null;
   }

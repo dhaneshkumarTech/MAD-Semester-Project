@@ -19,7 +19,6 @@ class ToReviewContainer extends StatelessWidget {
     return GestureDetector(
       onTap: () {},
       child: Container(
-        margin: const EdgeInsets.all(5),
         padding: const EdgeInsets.only(bottom: 20),
         width: double.infinity,
         child: Column(

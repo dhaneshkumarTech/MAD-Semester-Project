@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:itour_planner/BottomNavigationBar/bottom_navigation_bar.dart';
+import 'package:itour_planner/FloatingActionButton/floating_action_button.dart';
 import 'package:itour_planner/NotificationScreen/notification_container.dart';
 import 'model/notification.dart';
 
@@ -62,45 +64,14 @@ class _NotificationScreenState extends State<NotificationScreen> {
         ),
         child: ListView.builder(
           itemCount: _notifications.length,
-          itemBuilder: (context, index) => NotificationContainer(_notifications[index].dateTime, _notifications[index].description),
+          itemBuilder: (context, index) => NotificationContainer(
+              _notifications[index].dateTime,
+              _notifications[index].description),
         ),
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.fixed,
-        elevation: 10,
-        items: <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.home,
-              color: themeColor,
-            ),
-            label: 'Home',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.search,
-              color: themeColor,
-            ),
-            label: 'Search',
-          ),
-          BottomNavigationBarItem(
-            icon: ImageIcon(
-              const AssetImage("assets/BottomAppBarIcons/plan.png"),
-              color: themeColor,
-            ),
-            label: 'Plan',
-          ),
-          BottomNavigationBarItem(
-            icon: ImageIcon(
-              const AssetImage("assets/BottomAppBarIcons/booking.png"),
-              color: themeColor,
-            ),
-            label: 'Booking',
-          ),
-        ],
-        selectedItemColor: themeColor,
-        onTap: null,
-      ),
+      floatingActionButton: const FloatingActionButtonContainer(),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      bottomNavigationBar: const BottomNavigationBarContainer(),
     );
   }
 }
