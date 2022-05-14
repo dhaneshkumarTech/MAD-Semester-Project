@@ -3,7 +3,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../BottomNavigationBar/bottom_navigation_bar.dart';
 import '../FirebaseServices/authentication_service.dart';
+import '../FloatingActionButton/floating_action_button.dart';
 
 class profileScreen extends StatefulWidget {
   const profileScreen({Key? key}) : super(key: key);
@@ -35,8 +37,7 @@ class _profileScreenState extends State<profileScreen> {
       ),
       //two column for profile
       body: Container(
-        height: 460,
-        margin: const EdgeInsets.fromLTRB(30, 30, 30, 80),
+        margin: const EdgeInsets.fromLTRB(30, 24, 30, 80),
         child: Column(
           children: [
             Row(
@@ -52,13 +53,15 @@ class _profileScreenState extends State<profileScreen> {
                   ),
                 ),
                 const SizedBox(
-                  width: 20,
+                  width: 14,
                 ),
                 Column(
                   mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Row(
                       mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: const [
                         Text(
                           "Jennifer",
@@ -90,12 +93,12 @@ class _profileScreenState extends State<profileScreen> {
               ],
             ),
             Container(
-              height: 370,
+              height: 360,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   const SizedBox(
-                    height: 20,
+                    height: 14,
                   ),
                   AspectRatio(
                     aspectRatio: 12,
@@ -109,7 +112,7 @@ class _profileScreenState extends State<profileScreen> {
                       color: const Color(0xffC4C4C4),
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
                   AspectRatio(
@@ -305,44 +308,12 @@ class _profileScreenState extends State<profileScreen> {
           ],
         ),
       ),
-
+      // flaoting Action Active Button
+      floatingActionButton: const FloatingActionButtonContainer(),
+      floatingActionButtonLocation:
+          FloatingActionButtonLocation.miniCenterFloat,
       //Navigation Bar
-      bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.fixed,
-        elevation: 10,
-        items: <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.home,
-              color: themeColor,
-            ),
-            label: 'Home',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.search,
-              color: themeColor,
-            ),
-            label: 'Search',
-          ),
-          BottomNavigationBarItem(
-            icon: ImageIcon(
-              const AssetImage("assets/BottomAppBarIcons/plan.png"),
-              color: themeColor,
-            ),
-            label: 'Plan',
-          ),
-          BottomNavigationBarItem(
-            icon: ImageIcon(
-              const AssetImage("assets/BottomAppBarIcons/booking.png"),
-              color: themeColor,
-            ),
-            label: 'Booking',
-          ),
-        ],
-        selectedItemColor: themeColor,
-        onTap: null,
-      ),
+      bottomNavigationBar: const BottomNavigationBarContainer(),
     );
   }
 }
