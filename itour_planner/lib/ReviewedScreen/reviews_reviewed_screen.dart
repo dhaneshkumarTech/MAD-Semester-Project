@@ -17,7 +17,7 @@ class _ReviewsReviewedScreenState extends State<ReviewsReviewedScreen> {
     Review(
       'Abdullah\'s Trip',
       'Damn-e-Koh',
-      3,
+      3,  
       '25 Nov, 4:51am',
       'A panoramic view of capital of Pakistan',
       'Great View',
