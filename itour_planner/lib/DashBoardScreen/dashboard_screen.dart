@@ -84,7 +84,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                         ),
                         //Account Name
                         const Text(
-                          "Hi, Jennifer",
+                          "Hi, Jennifer", 
                           style: TextStyle(
                             fontSize: 18,
                           ),
