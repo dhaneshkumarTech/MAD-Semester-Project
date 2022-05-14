@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:itour_planner/ReviewedScreen/model/review.dart';
-import 'reviewed_container.dart';
-import '../ToReviewScreen/reviews_to_review_screen.dart';
+import '../ReviewsScreen/ReviewedScreen/model/review.dart';
+import '../ReviewsScreen/ReviewedScreen/reviewed_container.dart';
+//import '../ToReviewScreen/reviews_to_review_screen.dart';
 
 class ReviewsReviewedScreen extends StatefulWidget {
   const ReviewsReviewedScreen({Key? key}) : super(key: key);
@@ -51,12 +51,12 @@ class _ReviewsReviewedScreenState extends State<ReviewsReviewedScreen> {
               child: OutlinedButton(
                 child: const Text('To Review'),
                 onPressed: () {
-                  Navigator.pushReplacement(
+                  /* Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(
                       builder: (context) => const ReviewsToReviewScreen(),
                     ),
-                  );
+                  ); */
                 },
                 style: TextButton.styleFrom(
                   primary: themeColor,
