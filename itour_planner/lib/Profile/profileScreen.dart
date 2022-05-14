@@ -288,8 +288,8 @@ class _profileScreenState extends State<profileScreen> {
                   AspectRatio(
                     aspectRatio: 12,
                     child: RaisedButton(
-                      onPressed: () {
-                        context.read<AuthenticationService>().signOut();
+                      onPressed: () async {
+                        await context.read<AuthenticationService>().signOut();
                       },
                       child: const Text(
                         'Sign out',

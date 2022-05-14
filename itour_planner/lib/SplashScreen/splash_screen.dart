@@ -20,7 +20,7 @@ class SplashScreen extends StatelessWidget {
             ),
           ],
         ),
-        nextScreen: const profileScreen(),
+        nextScreen: const AuthenticationWrapper(),
         backgroundColor: const Color.fromRGBO(173, 37, 51, 1),
         splashTransition: SplashTransition.scaleTransition,
         duration: 1000,
