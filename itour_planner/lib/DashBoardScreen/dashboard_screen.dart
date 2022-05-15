@@ -6,6 +6,7 @@ import 'package:itour_planner/DashBoardScreen/model/trending_card.dart';
 import 'package:itour_planner/DashBoardScreen/place_category_button.dart';
 import 'package:itour_planner/DashBoardScreen/trending_image_container.dart';
 import 'package:itour_planner/FloatingActionButton/floating_action_button.dart';
+import 'package:itour_planner/MainSearch/main_search_screen.dart';
 import 'package:itour_planner/NotificationScreen/notification_screen.dart';
 
 class DashboardScreen extends StatefulWidget {
@@ -133,6 +134,14 @@ class _DashboardScreenState extends State<DashboardScreen> {
                 width: double.infinity,
                 alignment: Alignment.center,
                 child: TextField(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const MainSearchScreen(),
+                      ),
+                    );
+                  },
                   decoration: InputDecoration(
                     prefixIcon: Icon(
                       Icons.search_rounded,
@@ -239,7 +248,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
       floatingActionButton: const FloatingActionButtonContainer(),
       floatingActionButtonLocation:
           FloatingActionButtonLocation.miniCenterFloat,
-      //Navigation Bar
+      //Bottom Navigation Bar
       bottomNavigationBar: const BottomNavigationBarContainer(),
     );
   }
