@@ -1,21 +1,34 @@
 import 'package:flutter/material.dart';
+import 'package:itour_planner/ResetPassword/reset_password.dart';
 import 'package:flutter_signin_button/flutter_signin_button.dart';
-import 'package:itour_planner/LoginScreen/login_screen.dart';
+import '../SignUpScreen/sign_up.dart';
+import '../otpScreen/otp_screen.dart';
 
-class SignUp extends StatefulWidget {
-  const SignUp({Key? key}) : super(key: key);
+class AndroidLoginScreen extends StatefulWidget {
+  const AndroidLoginScreen({Key? key}) : super(key: key);
 
   @override
-  State<SignUp> createState() => _SignUpState();
+  State<AndroidLoginScreen> createState() => _AndroidLoginScreenState();
 }
 
-class _SignUpState extends State<SignUp> {
+class _AndroidLoginScreenState extends State<AndroidLoginScreen> {
   bool _isHidden = true;
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
 
   void _togglePasswordView() {
     setState(() {
       _isHidden = !_isHidden;
     });
+  }
+
+  String? _validateEmail(value) {
+    if (value!.isEmpty) return 'Enter email address';
+    final regex = RegExp(r'^.+@[a-zA-Z]+\.{1}[a-zA-Z]+(\.{0,1}[a-zA-Z]+)$');
+    if (!regex.hasMatch(value)) {
+      return 'Enter a valid email address';
+    }
+    return null;
   }
 
   @override
@@ -24,13 +37,16 @@ class _SignUpState extends State<SignUp> {
       body: Column(
         children: [
           Container(
+            padding: const EdgeInsets.only(
+              top: 100,
+            ),
             width: double.infinity,
             height: 250,
             child: SizedBox(
               height: 60,
               child: Image.asset('assets/images/app_logo.png'),
             ),
-            alignment: Alignment.center,
+            alignment: Alignment.topCenter,
             decoration: const BoxDecoration(
               color: Color.fromRGBO(173, 37, 51, 1),
               gradient: LinearGradient(
@@ -56,10 +72,10 @@ class _SignUpState extends State<SignUp> {
               mainAxisAlignment: MainAxisAlignment.start,
               children: <Widget>[
                 Container(
-                  margin: const EdgeInsets.fromLTRB(5, 15, 5, 0),
+                  margin: const EdgeInsets.fromLTRB(5, 50, 5, 0),
                   child: TextFormField(
-                    validator: null,
-                    controller: null,
+                    validator: _validateEmail,
+                    controller: _emailController,
                     keyboardType: TextInputType.emailAddress,
                     decoration: InputDecoration(
                       prefixIcon: const Icon(
@@ -92,11 +108,11 @@ class _SignUpState extends State<SignUp> {
                   ),
                 ),
                 Container(
-                  margin: const EdgeInsets.fromLTRB(5, 15, 5, 0),
+                  margin: const EdgeInsets.fromLTRB(5, 20, 5, 0),
                   child: TextFormField(
                     validator: null,
                     obscureText: _isHidden,
-                    controller: null,
+                    controller: _passwordController,
                     decoration: InputDecoration(
                       prefixIcon: const Icon(
                         Icons.lock,
@@ -135,50 +151,27 @@ class _SignUpState extends State<SignUp> {
                   ),
                 ),
                 Container(
-                  margin: const EdgeInsets.fromLTRB(5, 15, 5, 0),
-                  child: TextFormField(
-                    validator: null,
-                    obscureText: _isHidden,
-                    controller: null,
-                    decoration: InputDecoration(
-                      prefixIcon: const Icon(
-                        Icons.lock,
-                        color: Color.fromRGBO(173, 37, 51, 1),
-                      ),
-                      suffix: InkWell(
-                        onTap: _togglePasswordView,
-                        child: Icon(
-                          _isHidden ? Icons.visibility_off : Icons.visibility,
-                          color: const Color.fromRGBO(173, 37, 51, 1),
+                  alignment: Alignment.centerRight,
+                  child: TextButton(
+                    child: const Text(
+                      'Forgot Password?',
+                      style: TextStyle(fontSize: 16),
+                    ),
+                    onPressed: () {
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const ResetPassword(),
                         ),
-                      ),
-                      errorBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10.0),
-                        borderSide: const BorderSide(
-                          width: 2.0,
-                        ),
-                      ),
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10.0),
-                        borderSide: const BorderSide(
-                          width: 2.0,
-                        ),
-                      ),
-                      focusedBorder: OutlineInputBorder(
-                        borderSide: const BorderSide(
-                          width: 2.0,
-                        ),
-                        borderRadius: BorderRadius.circular(10.0),
-                      ),
-                      labelText: 'Confirm Password',
-                      labelStyle: const TextStyle(
-                        color: Color.fromRGBO(173, 37, 51, 1),
-                      ),
+                      );
+                    },
+                    style: TextButton.styleFrom(
+                      primary: const Color.fromRGBO(173, 37, 51, 1),
+                      padding: const EdgeInsets.all(0),
                     ),
                   ),
                 ),
-                Container(
-                  margin: const EdgeInsets.fromLTRB(0, 20, 0, 0),
+                SizedBox(
                   width: 150,
                   height: 50,
                   child: ElevatedButton(
@@ -188,9 +181,16 @@ class _SignUpState extends State<SignUp> {
                       onPrimary: Colors.white,
                       shape: const StadiumBorder(),
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => OTP(_emailController.text),
+                        ),
+                      );
+                    },
                     child: const Text(
-                      'SIGN UP',
+                      'LOG IN',
                       style: TextStyle(fontWeight: FontWeight.bold),
                     ),
                   ),
@@ -199,27 +199,27 @@ class _SignUpState extends State<SignUp> {
                   margin: const EdgeInsets.only(top: 20),
                   child: SignInButton(
                     Buttons.Google,
-                    text: "Sign Up with Google",
+                    text: "Sign In with Google",
                     onPressed: () {},
                   ),
                 ),
                 Container(
-                  margin: const EdgeInsets.fromLTRB(0, 20, 0, 0),
+                  margin: const EdgeInsets.fromLTRB(0, 10, 0, 0),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
-                      const Text("Already have an account?"),
+                      const Text("Don't have an account?"),
                       TextButton(
                         onPressed: () {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => const LoginScreen(),
+                              builder: (context) => const SignUp(),
                             ),
                           );
                         },
                         child: const Text(
-                          'Log in',
+                          'Sign Up',
                         ),
                         style: TextButton.styleFrom(
                           primary: const Color.fromRGBO(173, 37, 51, 1),
@@ -232,7 +232,10 @@ class _SignUpState extends State<SignUp> {
             ),
           ),
           Container(
-            margin: const EdgeInsets.fromLTRB(20, 0, 20, 0),
+            margin: const EdgeInsets.only(
+              left: 20,
+              right: 20,
+            ),
             alignment: Alignment.bottomRight,
             width: double.infinity,
             child: SizedBox(
