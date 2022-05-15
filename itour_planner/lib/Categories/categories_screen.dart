@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class categoriesScreen extends StatefulWidget {
-  const categoriesScreen({Key? key}) : super(key: key);
+class CategoriesScreen extends StatefulWidget {
+  const CategoriesScreen({Key? key}) : super(key: key);
 
   @override
-  State<categoriesScreen> createState() => _categoriesScreenState();
+  State<CategoriesScreen> createState() => _CategoriesScreenState();
 }
 
-class _categoriesScreenState extends State<categoriesScreen> {
+class _CategoriesScreenState extends State<CategoriesScreen> {
   Color themeColor = const Color.fromRGBO(173, 37, 51, 1);
   @override
   Widget build(BuildContext context) {

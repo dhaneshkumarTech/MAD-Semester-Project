@@ -8,8 +8,6 @@ class FloatingActionButtonContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 60.0,
-      width: 60.0,
       child: FloatingActionButton(
         backgroundColor: Colors.white,
         splashColor: themeColor.withOpacity(0.2),

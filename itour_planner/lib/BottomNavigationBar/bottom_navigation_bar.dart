@@ -21,42 +21,41 @@ class _BottomNavigationBarContainerState
       data: Theme.of(context).copyWith(
         iconTheme: IconThemeData(color: themeColor),
       ),
-      child: ClipRRect(
-        child: CurvedNavigationBar(
-          key: _navigationKey,
-          index: 0,
-          backgroundColor: themeColor.withOpacity(0.1),
-          animationCurve: Curves.easeInOut,
-          animationDuration: const Duration(milliseconds: 300),
-          items: const <Widget>[
-            Icon(
-              Icons.home_filled,
-              size: 30,
-            ),
-            Icon(
-              Icons.search_outlined,
-              size: 30,
-            ),
-            Icon(
-              Icons.favorite_rounded,
-              size: 30,
-            ),
-            Icon(
-              Icons.key,
-              size: 30,
-            ),
-          ],
-          onTap: (index) {
-            if (index == 0) {
-              // Navigator.push(
-              //   context,
-              //   MaterialPageRoute(
-              //     builder: (context) => const LoginScreen(),
-              //   ),
-              // );
-            }
-          },
-        ),
+      child: CurvedNavigationBar(
+        height: 50,
+        key: _navigationKey,
+        index: 0,
+        backgroundColor: themeColor.withOpacity(0.1),
+        animationCurve: Curves.easeInOut,
+        animationDuration: const Duration(milliseconds: 300),
+        items: const <Widget>[
+          Icon(
+            Icons.home_filled,
+            size: 30,
+          ),
+          Icon(
+            Icons.search_outlined,
+            size: 30,
+          ),
+          Icon(
+            Icons.favorite_rounded,
+            size: 30,
+          ),
+          Icon(
+            Icons.key,
+            size: 30,
+          ),
+        ],
+        onTap: (index) {
+          if (index == 0) {
+            // Navigator.push(
+            //   context,
+            //   MaterialPageRoute(
+            //     builder: (context) => const LoginScreen(),
+            //   ),
+            // );
+          }
+        },
       ),
     );
   }
