@@ -32,7 +32,7 @@ class _profileScreenState extends State<profileScreen> {
           builder: (BuildContext context) {
             return IconButton(
               icon: const ImageIcon(
-                const AssetImage("assets/BottomAppBarIcons/back.png"),
+                AssetImage("assets/BottomAppBarIcons/back.png"),
               ),
               onPressed: () {},
               tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,

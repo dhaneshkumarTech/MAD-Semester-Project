@@ -16,7 +16,7 @@ class CategoriesButton extends StatelessWidget {
       child: ElevatedButton.icon(
         onPressed: () {},
         style: ElevatedButton.styleFrom(
-          primary: const Color.fromRGBO(242, 124, 136, 0.7),
+          primary: const Color(0xffFBB7BE),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(30.0),
           ),

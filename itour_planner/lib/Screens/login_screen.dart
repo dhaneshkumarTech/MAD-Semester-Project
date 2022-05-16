@@ -38,7 +38,7 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
+      body: ListView(
         children: [
           Container(
             padding: const EdgeInsets.only(
@@ -175,10 +175,14 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                   ),
                 ),
-                loading ? CircularProgressIndicator(color: Color.fromARGB(255, 148, 10, 0),) : SizedBox(
-                  width: 150,
-                  height: 50,
-                  child: ElevatedButton(
+                loading
+                    ? CircularProgressIndicator(
+                        color: Color.fromARGB(255, 148, 10, 0),
+                      )
+                    : SizedBox(
+                        width: 150,
+                        height: 50,
+                        child: ElevatedButton(
                           style: ElevatedButton.styleFrom(
                             alignment: Alignment.center,
                             primary: const Color.fromRGBO(173, 37, 51, 1),
@@ -195,14 +199,14 @@ class _LoginScreenState extends State<LoginScreen> {
                                 context: context).then((value) => const AuthenticationWrapper());
                             setState(() {
                               loading = false;
-                            });    
+                            });
                           },
                           child: const Text(
                             'LOG IN',
                             style: TextStyle(fontWeight: FontWeight.bold),
                           ),
                         ),
-                ),
+                      ),
                 Container(
                   margin: const EdgeInsets.only(top: 20),
                   child: SignInButton(

@@ -5,14 +5,14 @@ import 'package:itour_planner/Models/trip_plan.dart';
 import 'package:itour_planner/Widgets/plan_container.dart';
 import 'package:itour_planner/Screens/review_screen.dart';
 
-class TripsPlan extends StatefulWidget {
-  const TripsPlan({Key? key}) : super(key: key);
+class Plans extends StatefulWidget {
+  const Plans({Key? key}) : super(key: key);
 
   @override
-  State<TripsPlan> createState() => _TripsPlanState();
+  State<Plans> createState() => _PlanState();
 }
 
-class _TripsPlanState extends State<TripsPlan> {
+class _PlanState extends State<Plans> {
   Color themeColor = const Color.fromRGBO(173, 37, 51, 1);
 
   final List<TripPlan> _tripPlans = [
@@ -103,7 +103,7 @@ class _TripsPlanState extends State<TripsPlan> {
           ),
         ),
         floatingActionButton: const FloatingActionButtonContainer(),
-        floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         bottomNavigationBar: const BottomNavigationBarContainer(),
       ),
     );
