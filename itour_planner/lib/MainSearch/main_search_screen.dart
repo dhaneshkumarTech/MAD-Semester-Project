@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:itour_planner/BottomNavigationBar/bottom_navigation_bar.dart';
-import 'package:itour_planner/DashBoardScreen/dashboard_screen.dart';
-import 'package:itour_planner/FloatingActionButton/floating_action_button.dart';
+import 'package:itour_planner/Screens/dashboard_screen.dart';
+import 'package:itour_planner/Widgets/bottom_navigation_bar.dart';
+import 'package:itour_planner/Widgets/floating_action_button.dart';
 
 class MainSearchScreen extends StatefulWidget {
   const MainSearchScreen({Key? key}) : super(key: key);
