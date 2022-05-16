@@ -19,7 +19,7 @@ class AuthenticationService {
     }
   }
 
-  Future<String?> signUp(
+  Future<dynamic?> signUp(
       {required String email, required String password}) async {
     try {
       await _firebaseAuth.createUserWithEmailAndPassword(
@@ -38,4 +38,11 @@ class AuthenticationService {
       return e.message.toString();
     }
   }
+
+  
+  static void sendEmailVerification(){
+
+  }
+
+
 }

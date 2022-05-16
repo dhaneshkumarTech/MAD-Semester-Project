@@ -1,11 +1,13 @@
 // ignore_for_file: deprecated_member_use, camel_case_types
 
 import 'package:flutter/material.dart';
+import 'package:itour_planner/LoginScreen/login_screen.dart';
 import 'package:provider/provider.dart';
 
 import '../BottomNavigationBar/bottom_navigation_bar.dart';
 import '../FirebaseServices/authentication_service.dart';
 import '../FloatingActionButton/floating_action_button.dart';
+import '../main.dart';
 
 class profileScreen extends StatefulWidget {
   const profileScreen({Key? key}) : super(key: key);
@@ -292,7 +294,13 @@ class _profileScreenState extends State<profileScreen> {
                     aspectRatio: 12,
                     child: RaisedButton(
                       onPressed: () async {
-                        await context.read<AuthenticationService>().signOut();
+                        final signOutStatus = await context
+                            .read<AuthenticationService>()
+                            .signOut();
+
+                        if (signOutStatus == "Signed Out") {
+                          Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const AuthenticationWrapper()));
+                        }
                       },
                       child: const Text(
                         'Sign out',

@@ -1,5 +1,7 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:itour_planner/PasswordUpdated/password_updated.dart';
+import 'package:itour_planner/main.dart';
 
 class ResetPassword extends StatefulWidget {
   const ResetPassword({Key? key}) : super(key: key);
@@ -11,10 +13,23 @@ class ResetPassword extends StatefulWidget {
 class _SignUpState extends State<ResetPassword> {
   bool _isHidden = true;
 
+  final auth = FirebaseAuth.instance;
+
+  TextEditingController _emailController = new TextEditingController();
+
   void _togglePasswordView() {
     setState(() {
       _isHidden = !_isHidden;
     });
+  }
+
+  String? _validateEmail(value) {
+    if (value!.isEmpty) return 'Enter email address';
+    final regex = RegExp(r'^.+@[a-zA-Z]+\.{1}[a-zA-Z]+(\.{0,1}[a-zA-Z]+)$');
+    if (!regex.hasMatch(value)) {
+      return 'Enter a valid email address';
+    }
+    return null;
   }
 
   @override
@@ -67,8 +82,8 @@ class _SignUpState extends State<ResetPassword> {
                 Container(
                   margin: const EdgeInsets.fromLTRB(5, 30, 5, 0),
                   child: TextFormField(
-                    validator: null,
-                    controller: null,
+                    validator: _validateEmail,
+                    controller: _emailController,
                     keyboardType: TextInputType.emailAddress,
                     decoration: InputDecoration(
                       prefixIcon: const Icon(
@@ -101,92 +116,6 @@ class _SignUpState extends State<ResetPassword> {
                   ),
                 ),
                 Container(
-                  margin: const EdgeInsets.fromLTRB(5, 20, 5, 0),
-                  child: TextFormField(
-                    validator: null,
-                    obscureText: _isHidden,
-                    controller: null,
-                    decoration: InputDecoration(
-                      prefixIcon: const Icon(
-                        Icons.lock,
-                        color: Color.fromRGBO(173, 37, 51, 1),
-                      ),
-                      suffix: InkWell(
-                        onTap: _togglePasswordView,
-                        child: Icon(
-                          _isHidden ? Icons.visibility_off : Icons.visibility,
-                          color: const Color.fromRGBO(173, 37, 51, 1),
-                        ),
-                      ),
-                      errorBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10.0),
-                        borderSide: const BorderSide(
-                          width: 2.0,
-                        ),
-                      ),
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10.0),
-                        borderSide: const BorderSide(
-                          width: 2.0,
-                        ),
-                      ),
-                      focusedBorder: OutlineInputBorder(
-                        borderSide: const BorderSide(
-                          width: 2.0,
-                        ),
-                        borderRadius: BorderRadius.circular(10.0),
-                      ),
-                      labelText: 'Password',
-                      labelStyle: const TextStyle(
-                        color: Color.fromRGBO(173, 37, 51, 1),
-                      ),
-                    ),
-                  ),
-                ),
-                Container(
-                  margin: const EdgeInsets.fromLTRB(5, 20, 5, 0),
-                  child: TextFormField(
-                    validator: null,
-                    obscureText: _isHidden,
-                    controller: null,
-                    decoration: InputDecoration(
-                      prefixIcon: const Icon(
-                        Icons.lock,
-                        color: Color.fromRGBO(173, 37, 51, 1),
-                      ),
-                      suffix: InkWell(
-                        onTap: _togglePasswordView,
-                        child: Icon(
-                          _isHidden ? Icons.visibility_off : Icons.visibility,
-                          color: const Color.fromRGBO(173, 37, 51, 1),
-                        ),
-                      ),
-                      errorBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10.0),
-                        borderSide: const BorderSide(
-                          width: 2.0,
-                        ),
-                      ),
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10.0),
-                        borderSide: const BorderSide(
-                          width: 2.0,
-                        ),
-                      ),
-                      focusedBorder: OutlineInputBorder(
-                        borderSide: const BorderSide(
-                          width: 2.0,
-                        ),
-                        borderRadius: BorderRadius.circular(10.0),
-                      ),
-                      labelText: 'Confirm Password',
-                      labelStyle: const TextStyle(
-                        color: Color.fromRGBO(173, 37, 51, 1),
-                      ),
-                    ),
-                  ),
-                ),
-                Container(
                   margin: const EdgeInsets.fromLTRB(0, 30, 0, 0),
                   width: 150,
                   height: 50,
@@ -197,16 +126,41 @@ class _SignUpState extends State<ResetPassword> {
                       onPrimary: Colors.white,
                       shape: const StadiumBorder(),
                     ),
-                    onPressed: () {
-                      Navigator.pushReplacement(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const PasswordUpdated(),
-                        ),
-                      );
+                    onPressed: () async {
+                      await auth.sendPasswordResetEmail(
+                          email: _emailController.text).then((value) => 
+                              showDialog(
+                              context: context,
+                              builder: (context) => AlertDialog(
+                                  title: const Text('REQUEST SENT'),
+                                  content: Column(
+                                    mainAxisSize: MainAxisSize.min,
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: <Widget>[
+                                      Text("Password reset request sent to your email address."),
+                                    ],
+                                  ),
+                                  actions: <Widget>[
+                                    new FlatButton(
+                                      onPressed: () {
+                                        Navigator.pushReplacement(
+                                            context,
+                                            MaterialPageRoute(
+                                              builder: (context) => const AuthenticationWrapper(),
+                                            ),
+                                          );
+                                      },
+                                      textColor: Theme.of(context).primaryColor,
+                                      child: const Text('Ok'),
+                                    ),
+                                  ],
+                            ))
+                          );
+                      
+
                     },
                     child: const Text(
-                      'RESET',
+                      'SEND REQUEST',
                       style: TextStyle(fontWeight: FontWeight.bold),
                     ),
                   ),
@@ -228,3 +182,4 @@ class _SignUpState extends State<ResetPassword> {
     );
   }
 }
+

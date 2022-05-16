@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:itour_planner/DashBoardScreen/dashboard_screen.dart';
+import 'package:itour_planner/main.dart';
 
 class VerifiedScreen extends StatelessWidget {
   const VerifiedScreen({Key? key}) : super(key: key);
@@ -37,27 +39,39 @@ class VerifiedScreen extends StatelessWidget {
                 Radius.circular(30.0),
               ),
             ),
-            child: Center(
-                child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                SizedBox(
-                  height: 130,
-                  child: Image.asset("assets/images/verified.png"),
-                ),
-                Container(
-                  margin: const EdgeInsets.only(top: 30),
-                  child: const Text(
-                    'Verified',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontSize: 30,
-                      fontWeight: FontWeight.bold,
+            child: Column(
+              children: [
+                Center(
+                    child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    SizedBox(
+                      height: 130,
+                      child: Image.asset("assets/images/verified.png"),
                     ),
-                  ),
-                ),
+                    Container(
+                      margin: const EdgeInsets.only(top: 30),
+                      child: const Text(
+                        'Verified',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontSize: 30,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                  ],
+                )),
+                ElevatedButton(
+                    onPressed: () {
+                      Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const AuthenticationWrapper()));
+                    },
+                    child: Text("Proceed to Dashboard!"))
               ],
-            )),
+            ),
           ),
         ],
       ),

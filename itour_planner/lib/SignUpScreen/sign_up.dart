@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_signin_button/flutter_signin_button.dart';
+import 'package:itour_planner/EmailVerification/email_verification_screen.dart';
+import 'package:itour_planner/main.dart';
+import 'package:provider/provider.dart';
+import '../FirebaseServices/authentication_service.dart';
 import '../LoginScreen/login_screen.dart';
 
 class SignUp extends StatefulWidget {
@@ -12,10 +16,24 @@ class SignUp extends StatefulWidget {
 class _SignUpState extends State<SignUp> {
   bool _isHidden = true;
 
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+
+  bool loading = false; // for loading indicator
+
   void _togglePasswordView() {
     setState(() {
       _isHidden = !_isHidden;
     });
+  }
+
+  String? _validateEmail(value) {
+    if (value!.isEmpty) return 'Enter email address';
+    final regex = RegExp(r'^.+@[a-zA-Z]+\.{1}[a-zA-Z]+(\.{0,1}[a-zA-Z]+)$');
+    if (!regex.hasMatch(value)) {
+      return 'Enter a valid email address';
+    }
+    return null;
   }
 
   @override
@@ -58,8 +76,8 @@ class _SignUpState extends State<SignUp> {
                 Container(
                   margin: const EdgeInsets.fromLTRB(5, 15, 5, 0),
                   child: TextFormField(
-                    validator: null,
-                    controller: null,
+                    validator: _validateEmail,
+                    controller: _emailController,
                     keyboardType: TextInputType.emailAddress,
                     decoration: InputDecoration(
                       prefixIcon: const Icon(
@@ -96,7 +114,7 @@ class _SignUpState extends State<SignUp> {
                   child: TextFormField(
                     validator: null,
                     obscureText: _isHidden,
-                    controller: null,
+                    controller: _passwordController,
                     decoration: InputDecoration(
                       prefixIcon: const Icon(
                         Icons.lock,
@@ -177,7 +195,7 @@ class _SignUpState extends State<SignUp> {
                     ),
                   ),
                 ),
-                Container(
+                loading ? CircularProgressIndicator(color: Color.fromARGB(255, 148, 10, 0),) : Container(
                   margin: const EdgeInsets.fromLTRB(0, 20, 0, 0),
                   width: 150,
                   height: 50,
@@ -188,7 +206,19 @@ class _SignUpState extends State<SignUp> {
                       onPrimary: Colors.white,
                       shape: const StadiumBorder(),
                     ),
-                    onPressed: () {},
+                    onPressed: () async{
+                      setState(() {
+                              loading = true;
+                            });
+                            await context.read<AuthenticationService>().signUp(
+                                email: _emailController.text,
+                                password: _passwordController.text);
+                            setState(() {
+                              loading = false;
+                            }); 
+
+                            Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => EmailVerificationScreen()));
+                    },
                     child: const Text(
                       'SIGN UP',
                       style: TextStyle(fontWeight: FontWeight.bold),

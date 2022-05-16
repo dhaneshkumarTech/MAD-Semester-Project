@@ -162,7 +162,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       style: TextStyle(fontSize: 16),
                     ),
                     onPressed: () {
-                      Navigator.pushReplacement(
+                      Navigator.push(
                         context,
                         MaterialPageRoute(
                           builder: (context) => const ResetPassword(),
