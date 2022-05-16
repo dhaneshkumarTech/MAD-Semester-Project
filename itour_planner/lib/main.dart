@@ -1,13 +1,13 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:itour_planner/EmailVerification/email_verification_screen.dart';
-import 'package:itour_planner/LoginScreen/login_screen.dart';
+import 'package:itour_planner/Screens/email_verification_screen.dart';
+import 'package:itour_planner/Screens/login_screen.dart';
 import 'package:provider/provider.dart';
-import './SplashScreen/splash_screen.dart';
-import 'DashBoardScreen/dashboard_screen.dart';
+import 'Screens/splash_screen.dart';
+import 'Screens/dashboard_screen.dart';
 import 'FirebaseServices/authentication_service.dart';
-import 'Profile/profileScreen.dart';
+import 'Screens/profileScreen.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -20,34 +20,36 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MultiProvider( 
-    providers: [
+    return MultiProvider(
+      providers: [
         Provider<AuthenticationService>(
-          create: (_) => AuthenticationService(FirebaseAuth.instance)
-        ),
+            create: (_) => AuthenticationService(FirebaseAuth.instance)),
         StreamProvider(
-          create: (context) => context.read<AuthenticationService>().authStateChanges, 
+          create: (context) =>
+              context.read<AuthenticationService>().authStateChanges,
           initialData: null,
         ),
       ],
-    child: MaterialApp(
-      home: Directionality(
-          textDirection: TextDirection.rtl, child: SplashScreen()),
-      debugShowCheckedModeBanner: false,
-    ),);
+      child: MaterialApp(
+        home: Directionality(
+            textDirection: TextDirection.rtl, child: SplashScreen()),
+        debugShowCheckedModeBanner: false,
+      ),
+    );
   }
 }
-
 
 class AuthenticationWrapper extends StatelessWidget {
   const AuthenticationWrapper({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    //final firebaseUser = FirebaseAuth.instance.currentUser;
     final firebaseUser = context.watch<User?>();
-    
+
     if (firebaseUser != null) {
-      if(firebaseUser.emailVerified) {
+      if (firebaseUser.emailVerified) {
+        print("Signed In Successfully");
         return const DashboardScreen();
       } else {
         return EmailVerificationScreen();
@@ -55,6 +57,5 @@ class AuthenticationWrapper extends StatelessWidget {
     } else {
       return const LoginScreen();
     }
-
   }
 }
