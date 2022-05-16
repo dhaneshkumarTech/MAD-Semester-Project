@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:itour_planner/EmailVerification/email_verification_screen.dart';
 import 'package:itour_planner/LoginScreen/login_screen.dart';
 import 'package:provider/provider.dart';
 import './SplashScreen/splash_screen.dart';
@@ -46,7 +47,11 @@ class AuthenticationWrapper extends StatelessWidget {
     final firebaseUser = context.watch<User?>();
     
     if (firebaseUser != null) {
-      return const DashboardScreen();
+      if(firebaseUser.emailVerified) {
+        return const DashboardScreen();
+      } else {
+        return EmailVerificationScreen();
+      }
     } else {
       return const LoginScreen();
     }
