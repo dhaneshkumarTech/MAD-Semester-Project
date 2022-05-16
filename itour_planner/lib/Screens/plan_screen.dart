@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:itour_planner/Models/trip_plan_model.dart';
+import 'package:itour_planner/Screens/review_screen.dart';
 import 'package:itour_planner/Widgets/bottom_navigation_bar.dart';
 import 'package:itour_planner/Widgets/floating_action_button.dart';
-import 'package:itour_planner/Models/trip_plan_model.dart';
 import 'package:itour_planner/Widgets/plan_container.dart';
-import 'package:itour_planner/Screens/review_screen.dart';
 
-class Plans extends StatefulWidget {
-  const Plans({Key? key}) : super(key: key);
+class TripsPlan extends StatefulWidget {
+  const TripsPlan({Key? key}) : super(key: key);
 
   @override
-  State<Plans> createState() => _PlanState();
+  State<TripsPlan> createState() => _TripsPlanState();
 }
 
-class _PlanState extends State<Plans> {
+class _TripsPlanState extends State<TripsPlan> {
   Color themeColor = const Color.fromRGBO(173, 37, 51, 1);
 
   final List<TripPlanModel> _tripPlans = [
@@ -103,7 +103,7 @@ class _PlanState extends State<Plans> {
           ),
         ),
         floatingActionButton: const FloatingActionButtonContainer(),
-        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
         bottomNavigationBar: const BottomNavigationBarContainer(),
       ),
     );
