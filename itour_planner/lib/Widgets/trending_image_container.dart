@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:itour_planner/Screens/star_rating.dart';
+import 'package:itour_planner/Screens/star_rating_screen.dart';
 
 class TrendingImageContainer extends StatelessWidget {
   final String image;

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:itour_planner/Widgets/bottom_navigation_bar.dart';
 import 'package:itour_planner/Widgets/floating_action_button.dart';
-import 'package:itour_planner/Models/trip_plan.dart';
+import 'package:itour_planner/Models/trip_plan_model.dart';
 import 'package:itour_planner/Widgets/plan_container.dart';
 import 'package:itour_planner/Screens/review_screen.dart';
 
@@ -15,23 +15,23 @@ class Plans extends StatefulWidget {
 class _PlanState extends State<Plans> {
   Color themeColor = const Color.fromRGBO(173, 37, 51, 1);
 
-  final List<TripPlan> _tripPlans = [
-    TripPlan(
+  final List<TripPlanModel> _tripPlans = [
+    TripPlanModel(
       tripName: 'Abdullah\'s Trip',
       image: 'assets/PlanPics/Karimabad.png',
       saves: 1,
     ),
-    TripPlan(
+    TripPlanModel(
       tripName: 'Bilal\'s Trip',
       image: 'assets/PlanPics/Shogran.png',
       saves: 1,
     ),
-    TripPlan(
+    TripPlanModel(
       tripName: 'Bilal\'s Trip',
       image: 'assets/PlanPics/Shogran.png',
       saves: 1,
     ),
-    TripPlan(
+    TripPlanModel(
       tripName: 'Bilal\'s Trip',
       image: 'assets/PlanPics/Shogran.png',
       saves: 1,

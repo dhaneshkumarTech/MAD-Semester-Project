@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:itour_planner/Widgets/bottom_navigation_bar.dart';
 import 'package:itour_planner/Widgets/floating_action_button.dart';
-import 'package:itour_planner/Models/review.dart';
-import 'package:itour_planner/Models/to_review.dart';
+import 'package:itour_planner/Models/review_model.dart';
 import 'package:itour_planner/Widgets/to_review_container.dart';
 import '../Widgets/reviewed_container.dart';
 
@@ -16,8 +15,8 @@ class ReviewsReviewedScreen extends StatefulWidget {
 class _ReviewsReviewedScreenState extends State<ReviewsReviewedScreen> {
   Color themeColor = const Color.fromRGBO(173, 37, 51, 1);
 
-  final List<Review> _reviewed = [
-    Review(
+  final List<ReviewModel> _reviewed = [
+    ReviewModel(
       'Abdullah\'s Trip',
       'Damn-e-Koh',
       3,
@@ -25,8 +24,9 @@ class _ReviewsReviewedScreenState extends State<ReviewsReviewedScreen> {
       'A panoramic view of capital of Pakistan',
       'Great View',
       'assets/ReviewPics/damn_e_koh.png',
+      'Islamabad'
     ),
-    Review(
+    ReviewModel(
       'Lahore Trip',
       'Fortress',
       3,
@@ -34,23 +34,30 @@ class _ReviewsReviewedScreenState extends State<ReviewsReviewedScreen> {
       'City of Lights',
       'Great View',
       'assets/ReviewPics/fortres.png',
+      'Islamabad'
     ),
   ];
 
-  final List<ToReview> _toReviews = [
-    ToReview(
+  final List<ReviewModel> _toReviews = [
+    ReviewModel(
       'Abdullah\'s Trip',
       'Damn-e-Koh',
       3,
-      'Islamabad',
+      '25 Nov, 4:51am',
+      'A panoramic view of capital of Pakistan',
+      'Great View',
       'assets/ReviewPics/damn_e_koh.png',
+      'Islamabad'
     ),
-    ToReview(
+    ReviewModel(
       'Lahore Trip',
       'Fortress',
       3,
-      'Lahore',
+      '21 Jan, 4:51am',
+      'City of Lights',
+      'Great View',
       'assets/ReviewPics/fortres.png',
+      'Islamabad'
     ),
   ];
 

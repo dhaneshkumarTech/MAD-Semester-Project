@@ -3,7 +3,7 @@ import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:itour_planner/Screens/dashboard_screen.dart';
 import 'package:itour_planner/main.dart';
 import 'package:page_transition/page_transition.dart';
-import 'package:itour_planner/Screens/profileScreen.dart';
+import 'package:itour_planner/Screens/profile_screen.dart';
 
 class SplashScreen extends StatelessWidget {
 

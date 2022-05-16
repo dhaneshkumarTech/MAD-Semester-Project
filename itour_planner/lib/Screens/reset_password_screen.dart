@@ -1,6 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:itour_planner/Screens/password_updated.dart';
+import 'package:itour_planner/Screens/password_updated_screen.dart';
 import 'package:itour_planner/main.dart';
 
 class ResetPassword extends StatefulWidget {

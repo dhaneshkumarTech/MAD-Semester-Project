@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:itour_planner/FirebaseServices/authentication_service.dart';
-import 'package:itour_planner/Screens/reset_password.dart';
+import 'package:itour_planner/Screens/reset_password_screen.dart';
 import 'package:flutter_signin_button/flutter_signin_button.dart';
 import 'package:itour_planner/main.dart';
 import 'package:provider/provider.dart';
-import 'sign_up.dart';
+import 'sign_up_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);

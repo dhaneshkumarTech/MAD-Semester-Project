@@ -2,16 +2,16 @@
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:itour_planner/Models/category_model.dart';
 import 'package:itour_planner/Widgets/bottom_navigation_bar.dart';
 
 import 'package:itour_planner/Widgets/floating_action_button.dart';
+import 'package:itour_planner/Models/trending_model.dart';
 import 'package:itour_planner/Widgets/main_category_button.dart';
-import 'package:itour_planner/Models/category.dart';
-import 'package:itour_planner/Models/trending_card.dart';
 import 'package:itour_planner/Widgets/place_category_button.dart';
 import 'package:itour_planner/Widgets/trending_image_container.dart';
 import 'package:itour_planner/Screens/notification_screen.dart';
-import 'package:itour_planner/Screens/profileScreen.dart';
+import 'package:itour_planner/Screens/profile_screen.dart';
 
 class DashboardScreen extends StatefulWidget {
   const DashboardScreen({Key? key}) : super(key: key);
@@ -23,21 +23,21 @@ class DashboardScreen extends StatefulWidget {
 class _DashboardScreenState extends State<DashboardScreen> {
   Color themeColor = const Color.fromRGBO(173, 37, 51, 1);
 
-  final List<TrendingCard> _trending = [
-    const TrendingCard("assets/DashboardImages/Images/faisal_mosque.png",
+  final List<TrendingModel> _trending = [
+    const TrendingModel("assets/DashboardImages/Images/faisal_mosque.png",
         "Faisal Mosque", 3, "Historical Place", "Islamabad, Pakistan"),
-    const TrendingCard("assets/DashboardImages/Images/faisal_mosque.png",
+    const TrendingModel("assets/DashboardImages/Images/faisal_mosque.png",
         "Faisal Mosque", 3, "Historical Place", "Islamabad, Pakistan"),
-    const TrendingCard("assets/DashboardImages/Images/faisal_mosque.png",
+    const TrendingModel("assets/DashboardImages/Images/faisal_mosque.png",
         "Faisal Mosque", 3, "Historical Place", "Islamabad, Pakistan"),
-    const TrendingCard("assets/DashboardImages/Images/faisal_mosque.png",
+    const TrendingModel("assets/DashboardImages/Images/faisal_mosque.png",
         "Faisal Mosque", 3, "Historical Place", "Islamabad, Pakistan")
   ];
 
-  final List<Category> _categories = [
-    const Category("assets/DashboardImages/Icons/desert.png", "Hilly Areas"),
-    const Category("assets/DashboardImages/Icons/beaches.png", "Beaches"),
-    const Category("assets/DashboardImages/Icons/desert.png", "Deserts")
+  final List<CategoryModel> _categories = [
+    const CategoryModel("assets/DashboardImages/Icons/desert.png", "Hilly Areas"),
+    const CategoryModel("assets/DashboardImages/Icons/beaches.png", "Beaches"),
+    const CategoryModel("assets/DashboardImages/Icons/desert.png", "Deserts")
   ];
 
   @override
