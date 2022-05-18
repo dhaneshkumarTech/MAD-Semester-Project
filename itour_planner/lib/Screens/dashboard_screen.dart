@@ -3,12 +3,14 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:itour_planner/Models/category_model.dart';
+import 'package:itour_planner/Screens/plan_trip_screen.dart';
 import 'package:itour_planner/Widgets/bottom_navigation_bar.dart';
 
 import 'package:itour_planner/Widgets/floating_action_button.dart';
 import 'package:itour_planner/Models/trending_model.dart';
 import 'package:itour_planner/Widgets/main_category_button.dart';
 import 'package:itour_planner/Widgets/place_category_button.dart';
+import 'package:itour_planner/Widgets/sites_tabbar_view.dart';
 import 'package:itour_planner/Widgets/trending_image_container.dart';
 import 'package:itour_planner/Screens/notification_screen.dart';
 import 'package:itour_planner/Screens/profile_screen.dart';
@@ -35,7 +37,8 @@ class _DashboardScreenState extends State<DashboardScreen> {
   ];
 
   final List<CategoryModel> _categories = [
-    const CategoryModel("assets/DashboardImages/Icons/desert.png", "Hilly Areas"),
+    const CategoryModel(
+        "assets/DashboardImages/Icons/desert.png", "Hilly Areas"),
     const CategoryModel("assets/DashboardImages/Icons/beaches.png", "Beaches"),
     const CategoryModel("assets/DashboardImages/Icons/desert.png", "Deserts")
   ];
@@ -170,16 +173,37 @@ class _DashboardScreenState extends State<DashboardScreen> {
               margin: const EdgeInsets.only(bottom: 5),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: const [
+                children: [
                   MainCategoryButton(
-                      icon: "assets/DashboardImages/Icons/sites.png",
-                      text: "Sites"),
+                    icon: "assets/DashboardImages/Icons/sites.png",
+                    text: "Sites",
+                    action: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => PlanTrips()));
+                    },
+                  ),
                   MainCategoryButton(
-                      icon: "assets/DashboardImages/Icons/hotels.png",
-                      text: "Hotels"),
+                    icon: "assets/DashboardImages/Icons/hotels.png",
+                    text: "Hotels",
+                    action: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => PlanTrips()));
+                    },
+                  ),
                   MainCategoryButton(
-                      icon: "assets/DashboardImages/Icons/foods.png",
-                      text: "Foods")
+                    icon: "assets/DashboardImages/Icons/foods.png",
+                    text: "Foods",
+                    action: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => PlanTrips()));
+                    },
+                  )
                 ],
               ),
             ),

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:itour_planner/Models/trip_sites_details_model.dart';
+import 'package:itour_planner/Models/sights_model.dart';
 import 'hotel_detail.dart';
 import 'site_details.dart';
 import 'site_images.dart';
@@ -13,8 +13,8 @@ class SitesTabBarView extends StatefulWidget {
 
 class _SitesTabBarViewState extends State<SitesTabBarView> {
   final Color themeColor = const Color.fromRGBO(173, 37, 51, 1);
-  final List<TripSitesDetailsModel> _TripSitessDetails = [
-    TripSitesDetailsModel(
+  final List<SightsModel> _TripSitessDetails = [
+    /* SightsModel(
       [
         'assets/PlanPics/centuarus.png',
         "assets/PlanPics/sarena.png",
@@ -28,7 +28,7 @@ class _SitesTabBarViewState extends State<SitesTabBarView> {
       10,
       12,
     ),
-    TripSitesDetailsModel(
+    SightsModel(
       [
         'assets/PlanPics/faisalmosque.png',
         'assets/PlanPics/centuarus.png',
@@ -43,7 +43,7 @@ class _SitesTabBarViewState extends State<SitesTabBarView> {
       8,
       10,
     ),
-    TripSitesDetailsModel(
+    SightsModel(
       [
         "assets/PlanPics/sarena.png",
         'assets/PlanPics/faisalmosque.png',
@@ -55,7 +55,7 @@ class _SitesTabBarViewState extends State<SitesTabBarView> {
       4,
       6,
       7,
-    ),
+    ), */
   ];
 
   @override
@@ -63,7 +63,7 @@ class _SitesTabBarViewState extends State<SitesTabBarView> {
     return SizedBox(
       height: double.infinity,
       width: double.infinity,
-      child: ListView.builder(
+      /* child: ListView.builder(
           scrollDirection: Axis.vertical,
           itemCount: _TripSitessDetails.length,
           itemBuilder: (context, index) => SiteDetails(
@@ -74,7 +74,7 @@ class _SitesTabBarViewState extends State<SitesTabBarView> {
                 _TripSitessDetails[index].duration,
                 _TripSitessDetails[index].openingHours,
                 _TripSitessDetails[index].closingHours,
-              )),
+              )), */
     );
   }
 }

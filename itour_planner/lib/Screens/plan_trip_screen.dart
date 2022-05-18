@@ -4,6 +4,7 @@ import 'package:itour_planner/Widgets/floating_action_button.dart';
 import 'package:itour_planner/Widgets/hotels_tabbar_view.dart';
 import 'package:itour_planner/Widgets/main_category_button.dart';
 import 'package:itour_planner/Widgets/sites_tabbar_view.dart';
+
 class PlanTrips extends StatefulWidget {
   const PlanTrips({Key? key}) : super(key: key);
 
@@ -12,7 +13,6 @@ class PlanTrips extends StatefulWidget {
 }
 
 class _PlanTripsState extends State<PlanTrips> {
-
   @override
   Widget build(BuildContext context) {
     Color themeColor = const Color.fromRGBO(173, 37, 51, 1);
@@ -26,7 +26,9 @@ class _PlanTripsState extends State<PlanTrips> {
                 icon: const ImageIcon(
                   AssetImage("assets/BottomAppBarIcons/back.png"),
                 ),
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pop(context);
+                },
                 tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,
               );
             },
@@ -62,16 +64,20 @@ class _PlanTripsState extends State<PlanTrips> {
                 width: double.infinity,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.start,
-                  children: const [
+                  children: [
                     MainCategoryButton(
-                        icon: "assets/DashboardImages/Icons/Calendar.png",
-                        text: "add your travel dates"),
-                    SizedBox(
+                      icon: "assets/DashboardImages/Icons/Calendar.png",
+                      text: "add your travel dates",
+                      action: () {},
+                    ),
+                    const SizedBox(
                       width: 10,
                     ),
                     MainCategoryButton(
-                        icon: 'assets/DashboardImages/Icons/map.png',
-                        text: "view on map"),
+                      icon: 'assets/DashboardImages/Icons/map.png',
+                      text: "view on map",
+                      action: () {},
+                    ),
                   ],
                 ),
               ),
@@ -117,7 +123,7 @@ class _PlanTripsState extends State<PlanTrips> {
                       // Hotels
                       HotelsTabBarView(),
                       //Foods
-                     HotelsTabBarView(),
+                      HotelsTabBarView(),
                     ],
                   ),
                 ),
