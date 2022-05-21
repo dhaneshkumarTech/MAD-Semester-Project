@@ -31,7 +31,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
           backgroundColor: themeColor,
         ),
 
-        body: Container(
+        body: SizedBox(
           height: double.infinity,
           width: double.infinity,
           child: Column(

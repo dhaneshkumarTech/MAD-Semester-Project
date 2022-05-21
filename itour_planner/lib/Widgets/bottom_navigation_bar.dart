@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
+import 'package:itour_planner/Screens/dashboard_screen.dart';
+import 'package:itour_planner/Screens/main_search_screen.dart';
 
 class BottomNavigationBarContainer extends StatefulWidget {
   const BottomNavigationBarContainer({Key? key}) : super(key: key);
@@ -22,7 +24,7 @@ class _BottomNavigationBarContainerState
         iconTheme: IconThemeData(color: themeColor),
       ),
       child: CurvedNavigationBar(
-        height: 50,
+        height: 60,
         key: _navigationKey,
         index: 0,
         backgroundColor: themeColor.withOpacity(0.1),
@@ -46,15 +48,9 @@ class _BottomNavigationBarContainerState
             size: 30,
           ),
         ],
+        letIndexChange: (index) => true,
         onTap: (index) {
-          if (index == 0) {
-            // Navigator.push(
-            //   context,
-            //   MaterialPageRoute(
-            //     builder: (context) => const LoginScreen(),
-            //   ),
-            // );
-          }
+          
         },
       ),
     );

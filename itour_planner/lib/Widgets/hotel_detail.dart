@@ -1,21 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:itour_planner/Screens/star_rating_screen.dart';
-import 'package:itour_planner/Widgets/HorizentalLine.dart';
 import 'hotel_images.dart';
 
 class HotelDetails extends StatelessWidget {
-  List<String> images;
-  String hotelName;
-  String hotelType;
-  String reviews;
-  String roomType;
-  int totalNights;
-  int totalAdults;
-  int hotelRent;
-  int discount;
-  int availableRooms;
+  final Color themeColor = const Color.fromRGBO(173, 37, 51, 1);
+  final List<String> images;
+  final String hotelName;
+  final String hotelType;
+  final String reviews;
+  final String roomType;
+  final int totalNights;
+  final int totalAdults;
+  final int hotelRent;
+  final int discount;
+  final int availableRooms;
+  final VoidCallback action;
 
-  HotelDetails(
+  const HotelDetails(
       this.images,
       this.hotelName,
       this.hotelType,
@@ -25,16 +26,20 @@ class HotelDetails extends StatelessWidget {
       this.totalAdults,
       this.hotelRent,
       this.discount,
-      this.availableRooms);
+      this.availableRooms,
+      this.action,
+      {Key? key})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      width: double.infinity,
-      child: Builder(builder: (context) {
-        return Column(
+    return GestureDetector(
+      onTap: action,
+      child: SizedBox(
+        width: double.infinity,
+        child: Column(
           children: [
-            Container(
+            SizedBox(
               height: 170,
               width: double.infinity,
               child: ListView.builder(
@@ -44,28 +49,29 @@ class HotelDetails extends StatelessWidget {
               ),
             ),
             Container(
-              margin: const EdgeInsets.only(left: 10, right: 10),
+              margin: const EdgeInsets.only(left: 10, right: 10, top: 10),
               width: double.infinity,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Text(
                         hotelName,
                         style: const TextStyle(
-                            fontSize: 24, fontWeight: FontWeight.w600),
+                          fontSize: 22,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                       Container(
                         margin: const EdgeInsets.only(
                           left: 10,
                         ),
+                        padding: const EdgeInsets.all(3),
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(5),
-                          color: const Color(0xffB4B5E5),
+                          color: Colors.grey.withOpacity(0.2),
                         ),
                         child: Text(
                           hotelType,
@@ -132,10 +138,10 @@ class HotelDetails extends StatelessWidget {
                       ),
                       Text(
                         '$discount',
-                        style: const TextStyle(
+                        style: TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.w800,
-                          color: Colors.red,
+                          color: themeColor,
                         ),
                       ),
                     ],
@@ -153,34 +159,32 @@ class HotelDetails extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             Image.asset(
-                                'assets/DashboardImages/Icons/hotels_red.png'),
+                              'assets/DashboardImages/Icons/hotels_red.png',
+                              color: themeColor,
+                            ),
                             Padding(
                               padding: const EdgeInsets.only(left: 10),
                               child: Text(
                                 'only $availableRooms rooms left',
-                                style: const TextStyle(
+                                style: TextStyle(
                                   fontSize: 14,
                                   fontWeight: FontWeight.bold,
-                                  color: Colors.red,
+                                  color: themeColor,
                                 ),
                               ),
                             ),
                           ],
                         ),
                       ),
-                      ElevatedButton(
+                      TextButton(
                         onPressed: () {},
-                        style: ElevatedButton.styleFrom(
-                          primary: Colors.yellow,
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(50)),
+                        style: TextButton.styleFrom(
+                          primary: themeColor,
                         ),
                         child: const Text(
-                          "view deals",
+                          "View deals",
                           style: TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.w700,
-                            color: Colors.black,
+                            fontSize: 18,
                           ),
                         ),
                       ),
@@ -189,17 +193,9 @@ class HotelDetails extends StatelessWidget {
                 ],
               ),
             ),
-            const HorizentalLineDivider(),
           ],
-        );
-      }),
+        ),
+      ),
     );
   }
-}
-
-@override
-Widget build(BuildContext context) {
-  // ignore: todo
-  // TODO: implement build
-  throw UnimplementedError();
 }

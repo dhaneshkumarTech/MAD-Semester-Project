@@ -4,7 +4,7 @@ import 'package:itour_planner/Models/trip_hotels_details_model.dart';
 import 'hotel_detail.dart';
 
 class HotelsTabBarView extends StatefulWidget {
-  HotelsTabBarView({Key? key}) : super(key: key);
+  const HotelsTabBarView({Key? key}) : super(key: key);
 
   @override
   State<HotelsTabBarView> createState() => _HotelsTabBarViewState();
@@ -47,6 +47,23 @@ class _HotelsTabBarViewState extends State<HotelsTabBarView> {
       3400,
       6,
     ),
+    TripHotelsDetailsModel(
+      [
+        'assets/PlanPics/chatel.png',
+        'assets/PlanPics/faisalmosque.png',
+        "assets/PlanPics/centuarus.png",
+        'assets/PlanPics/faisalmosque.png',
+      ],
+      "Chalet Hotel Islamabad",
+      "Sponsered",
+      "1.3k",
+      "Executive, Double Bed",
+      3,
+      4,
+      14500,
+      3400,
+      6,
+    ),
   ];
   @override
   Widget build(BuildContext context) {
@@ -54,20 +71,22 @@ class _HotelsTabBarViewState extends State<HotelsTabBarView> {
       height: double.infinity,
       width: double.infinity,
       child: ListView.builder(
-          scrollDirection: Axis.vertical,
-          itemCount: _TripHotelsDetails.length,
-          itemBuilder: (context, index) => HotelDetails(
-                _TripHotelsDetails[index].images,
-                _TripHotelsDetails[index].hotelName,
-                _TripHotelsDetails[index].hotelType,
-                _TripHotelsDetails[index].reviews,
-                _TripHotelsDetails[index].roomType,
-                _TripHotelsDetails[index].totalNights,
-                _TripHotelsDetails[index].totalAdults,
-                _TripHotelsDetails[index].hotelRent,
-                _TripHotelsDetails[index].discount,
-                _TripHotelsDetails[index].availableRooms,
-              )),
+        scrollDirection: Axis.vertical,
+        itemCount: _TripHotelsDetails.length,
+        itemBuilder: (context, index) => HotelDetails(
+          _TripHotelsDetails[index].images,
+          _TripHotelsDetails[index].hotelName,
+          _TripHotelsDetails[index].hotelType,
+          _TripHotelsDetails[index].reviews,
+          _TripHotelsDetails[index].roomType,
+          _TripHotelsDetails[index].totalNights,
+          _TripHotelsDetails[index].totalAdults,
+          _TripHotelsDetails[index].hotelRent,
+          _TripHotelsDetails[index].discount,
+          _TripHotelsDetails[index].availableRooms,
+          () {},
+        ),
+      ),
     );
   }
 }

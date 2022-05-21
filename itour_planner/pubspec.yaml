@@ -79,8 +79,16 @@ flutter:
     - assets/BottomAppBarIcons/
     - assets/DashboardImages/Icons/
     - assets/DashboardImages/Images/
+    - assets/MainSearchIcons/
+    - assets/BottomNavigationBarIcons/
+    - assets/ProfilePics/
   #   - images/a_dot_ham.jpeg
 
+fonts:
+- family: SanFrancisco
+  fonts:
+    - asset: fonts/ios_font.ttf
+      weight: 700
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
 

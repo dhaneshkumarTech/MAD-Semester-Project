@@ -27,8 +27,12 @@ class TrendingImageContainer extends StatelessWidget {
           //for images
           Container(
             margin: const EdgeInsets.only(bottom: 3),
+            width: 150,
             height: 170,
-            child: Image.asset(image),
+            child: Image.asset(
+              image,
+              fit: BoxFit.fill,
+            ),
           ),
           SizedBox(
             child: Column(

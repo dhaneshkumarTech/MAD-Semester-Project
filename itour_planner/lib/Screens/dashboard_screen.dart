@@ -1,7 +1,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:itour_planner/Models/category_model.dart';
+import 'package:itour_planner/Screens/main_search_screen.dart';
 import 'package:itour_planner/Screens/plan_trip_screen.dart';
+import 'package:itour_planner/Screens/site_screen.dart';
 import 'package:itour_planner/Widgets/bottom_navigation_bar.dart';
 
 import 'package:itour_planner/Widgets/floating_action_button.dart';
@@ -25,11 +27,19 @@ class _DashboardScreenState extends State<DashboardScreen> {
   final List<TrendingModel> _trending = [
     const TrendingModel("assets/DashboardImages/Images/faisal_mosque.png",
         "Faisal Mosque", 3, "Historical Place", "Islamabad, Pakistan"),
-    const TrendingModel("assets/DashboardImages/Images/centurus.png",
+    const TrendingModel("assets/DashboardImages/Images/centurus.jpeg",
         "Centurus Mall", 3, "Historical Place", "Islamabad, Pakistan"),
-    const TrendingModel("assets/DashboardImages/Images/monal.png",
-        "Monal", 3, "Historical Place", "Islamabad, Pakistan"),
-    const TrendingModel("assets/DashboardImages/Images/emporium.png",
+    const TrendingModel("assets/DashboardImages/Images/monal.jpeg", "Monal", 3,
+        "Hill Top Resturant", "Islamabad, Pakistan"),
+    const TrendingModel("assets/DashboardImages/Images/damn_e_koh.jpeg",
+        "Damn-e-Koh", 3, "Hill Top Garden", "Lahore, Pakistan"),
+    const TrendingModel("assets/DashboardImages/Images/lake_view.jpeg",
+        "Lake View Park", 3, "Park", "Lahore, Pakistan"),
+    const TrendingModel("assets/DashboardImages/Images/safa_gold_mall.jpeg",
+        "Safa Gold Mall", 3, "Shopping Mall", "Lahore, Pakistan"),
+    const TrendingModel("assets/DashboardImages/Images/monument.jpeg",
+        "Monument", 3, "Historic Place", "Lahore, Pakistan"),
+    const TrendingModel("assets/DashboardImages/Images/emporium.jpeg",
         "Emporium Mall", 3, "Shopping Mall", "Lahore, Pakistan")
   ];
 
@@ -136,32 +146,30 @@ class _DashboardScreenState extends State<DashboardScreen> {
                 ],
               ),
             ),
-            Card(
-              margin: const EdgeInsets.only(bottom: 10),
-              elevation: 1.0,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(30),
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                primary: themeColor.withOpacity(0.9),
               ),
-              child: Container(
-                height: 50,
-                width: double.infinity,
-                alignment: Alignment.center,
-                child: TextField(
-                  decoration: InputDecoration(
-                    prefixIcon: Icon(
-                      Icons.search_rounded,
-                      color: themeColor,
+              child: Row(
+                children: [
+                  const Icon(Icons.search),
+                  Container(
+                    margin: const EdgeInsets.only(left: 90),
+                    child: const Text(
+                      'Search for places',
+                      
                     ),
-                    hintText: "Search for places",
-                    hintStyle: const TextStyle(
-                      color: Colors.grey,
-                      fontSize: 18,
-                    ),
-                    border: InputBorder.none,
+                  )
+                ],
+              ),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const MainSearchScreen(),
                   ),
-                  onChanged: (String keyword) {},
-                ),
-              ),
+                );
+              },
             ),
             Container(
               height: 60,
@@ -173,24 +181,36 @@ class _DashboardScreenState extends State<DashboardScreen> {
                     icon: "assets/DashboardImages/Icons/sites.png",
                     text: "Sites",
                     action: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => const PlanTrips()));
+                      Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const SiteScreen(),
+                ),
+              );
                     },
                   ),
                   MainCategoryButton(
                     icon: "assets/DashboardImages/Icons/hotels.png",
                     text: "Hotels",
                     action: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => const PlanTrips()));
+                     Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const SiteScreen(),
+                ),
+              );
                     },
                   ),
                   MainCategoryButton(
                     icon: "assets/DashboardImages/Icons/foods.png",
                     text: "Foods",
                     action: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => const PlanTrips()));
+                      Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const SiteScreen(),
+                ),
+              );
                     },
                   )
                 ],
@@ -266,8 +286,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
       ),
       // flaoting Action Active Button
       floatingActionButton: const FloatingActionButtonContainer(),
-      floatingActionButtonLocation:
-          FloatingActionButtonLocation.miniCenterFloat,
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       //Navigation Bar
       bottomNavigationBar: const BottomNavigationBarContainer(),
     );

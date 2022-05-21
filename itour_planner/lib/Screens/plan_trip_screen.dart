@@ -111,7 +111,7 @@ class _PlanTripsState extends State<PlanTrips> {
 
               // tabBar View
               //each area list view
-              SingleChildScrollView(
+              const SingleChildScrollView(
                 scrollDirection: Axis.vertical,
                 child: SizedBox(
                   height: 431,
@@ -119,7 +119,7 @@ class _PlanTripsState extends State<PlanTrips> {
                   child: TabBarView(
                     children: [
                       //Sites
-                      SitesTabBarView(),
+                      SiteTabBarView(),
                       // Hotels
                       HotelsTabBarView(),
                       //Foods

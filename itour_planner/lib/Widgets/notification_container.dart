@@ -3,11 +3,14 @@ import 'package:flutter/material.dart';
 class NotificationContainer extends StatelessWidget {
   final Color themeColor = const Color.fromRGBO(173, 37, 51, 1);
 
-  final String _dateTime;
-  final String _description;
+  final String dateTime;
+  final String description;
+  final VoidCallback action;
 
-  const NotificationContainer(this._dateTime, this._description, {Key? key})
-      : super(key: key);
+  const NotificationContainer({Key? key, required this.dateTime, required this.description, required this.action}) : super(key: key);
+
+
+  
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -38,7 +41,7 @@ class NotificationContainer extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Text(
-              _dateTime,
+              dateTime,
               style: TextStyle(
                 fontSize: 16,
                 fontWeight: FontWeight.bold,
@@ -46,7 +49,7 @@ class NotificationContainer extends StatelessWidget {
               ),
             ),
             Text(
-              _description,
+              description,
               style: const TextStyle(
                 fontSize: 14,
               ),

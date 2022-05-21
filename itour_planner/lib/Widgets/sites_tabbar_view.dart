@@ -1,80 +1,83 @@
 import 'package:flutter/material.dart';
-import 'package:itour_planner/Models/sights_model.dart';
-import 'hotel_detail.dart';
-import 'site_details.dart';
-import 'site_images.dart';
+import 'package:itour_planner/Models/trip_site_detail_model.dart';
+import 'package:itour_planner/Screens/sites_single_page.dart';
+import 'package:itour_planner/Widgets/site_details.dart';
 
-class SitesTabBarView extends StatefulWidget {
-  const SitesTabBarView({Key? key}) : super(key: key);
+class SiteTabBarView extends StatefulWidget {
+  const SiteTabBarView({Key? key}) : super(key: key);
 
   @override
-  State<SitesTabBarView> createState() => _SitesTabBarViewState();
+  State<SiteTabBarView> createState() => _SiteTabBarViewState();
 }
 
-class _SitesTabBarViewState extends State<SitesTabBarView> {
-  final Color themeColor = const Color.fromRGBO(173, 37, 51, 1);
-  final List<SightsModel> _TripSitessDetails = [
-    /* SightsModel(
+class _SiteTabBarViewState extends State<SiteTabBarView> {
+  // ignore: non_constant_identifier_names
+  final List<TripSitesDetailsModel> _TripHotelsDetails = [
+    TripSitesDetailsModel(
       [
+        'assets/PlanPics/sarena.png',
         'assets/PlanPics/centuarus.png',
         "assets/PlanPics/sarena.png",
         'assets/PlanPics/faisalmosque.png',
-        'assets/PlanPics/sarena.png',
       ],
-      'Centauras',
-      'Shoping mall',
-      '1.3k',
-      4,
-      10,
-      12,
+      "Islamabad Sarena",
+      "Sponsered",
+      "1.3k",
+      2,
+      3,
+      7,
+      "Shah Faisal Ave, E-8, Islamabad"
     ),
-    SightsModel(
+    TripSitesDetailsModel(
       [
+        'assets/PlanPics/chatel.png',
         'assets/PlanPics/faisalmosque.png',
-        'assets/PlanPics/centuarus.png',
-        "assets/PlanPics/sarena.png",
+        "assets/PlanPics/centuarus.png",
         'assets/PlanPics/faisalmosque.png',
-        'assets/PlanPics/sarena.png',
       ],
-      'Fiasal mosque',
-      'Worship place',
-      '3.8k',
-      1,
-      8,
-      10,
-    ),
-    SightsModel(
-      [
-        "assets/PlanPics/sarena.png",
-        'assets/PlanPics/faisalmosque.png',
-        'assets/PlanPics/sarena.png',
-      ],
-      'Marghala Hill',
-      'Hills',
-      '4.6k',
+      "Chalet Hotel ",
+      "Sponsered",
+      "1.3k",
+      3,
       4,
       6,
-      7,
-    ), */
+      "Chatel Hotel, F-6, Islamabad"
+    ),
   ];
-
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       height: double.infinity,
       width: double.infinity,
-      /* child: ListView.builder(
+      child: ListView.builder(
           scrollDirection: Axis.vertical,
-          itemCount: _TripSitessDetails.length,
+          itemCount: _TripHotelsDetails.length,
           itemBuilder: (context, index) => SiteDetails(
-                _TripSitessDetails[index].images,
-                _TripSitessDetails[index].siteName,
-                _TripSitessDetails[index].siteType,
-                _TripSitessDetails[index].siteReviews,
-                _TripSitessDetails[index].duration,
-                _TripSitessDetails[index].openingHours,
-                _TripSitessDetails[index].closingHours,
-              )), */
+                _TripHotelsDetails[index].images,
+                _TripHotelsDetails[index].siteName,
+                _TripHotelsDetails[index].siteType,
+                _TripHotelsDetails[index].siteReviews,
+                _TripHotelsDetails[index].duration,
+                _TripHotelsDetails[index].openingHours,
+                _TripHotelsDetails[index].closingHours,
+                (){
+                   Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => SitesSinglePage(
+                    images: _TripHotelsDetails[index].images,
+                    siteName: _TripHotelsDetails[index].siteName,
+                    siteType: _TripHotelsDetails[index].siteType,
+                    siteReviews: _TripHotelsDetails[index].siteReviews,
+                    address: _TripHotelsDetails[index].address,
+                    duration: _TripHotelsDetails[index].duration,
+                 openingHours: _TripHotelsDetails[index].openingHours,
+                closingHours: _TripHotelsDetails[index].closingHours,
+                  ),
+                ),
+              );
+                }
+              )),
     );
   }
 }

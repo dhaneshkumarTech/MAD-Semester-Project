@@ -21,7 +21,7 @@ class AuthenticationService {
     }
   }
 
-  Future<dynamic?> signUp(
+  Future<dynamic> signUp(
       {required String email, required String password}) async {
     try {
       await _firebaseAuth.createUserWithEmailAndPassword(

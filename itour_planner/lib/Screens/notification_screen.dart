@@ -18,35 +18,15 @@ class _NotificationScreenState extends State<NotificationScreen> {
 
   final List<NotificationModel> _notifications = [
     NotificationModel(
-      'Today, 4:51 am',
+      'Today, 10:00 am',
       'Your section trip is going to start from tomorrow. And your Alhajmir check in date is 27 Nov. You have to notify the itour when you will go for check in.',
     ),
     NotificationModel(
-      'Today, 4:51 am',
+      'Today, 04:51 am',
       'Your section trip is going to start from tomorrow. And your Alhajmir check in date is 27 Nov. You have to notify the itour when you will go for check in.',
     ),
     NotificationModel(
-      'Today, 4:51 am',
-      'Your section trip is going to start from tomorrow. And your Alhajmir check in date is 27 Nov. You have to notify the itour when you will go for check in.',
-    ),
-    NotificationModel(
-      'Today, 4:51 am',
-      'Your section trip is going to start from tomorrow. And your Alhajmir check in date is 27 Nov. You have to notify the itour when you will go for check in.',
-    ),
-    NotificationModel(
-      'Today, 4:51 am',
-      'Your section trip is going to start from tomorrow. And your Alhajmir check in date is 27 Nov. You have to notify the itour when you will go for check in.',
-    ),
-    NotificationModel(
-      'Today, 4:51 am',
-      'Your section trip is going to start from tomorrow. And your Alhajmir check in date is 27 Nov. You have to notify the itour when you will go for check in.',
-    ),
-    NotificationModel(
-      'Today, 4:51 am',
-      'Your section trip is going to start from tomorrow. And your Alhajmir check in date is 27 Nov. You have to notify the itour when you will go for check in.',
-    ),
-    NotificationModel(
-      'Today, 4:51 am',
+      'Yesterday, 02:15 pm',
       'Your section trip is going to start from tomorrow. And your Alhajmir check in date is 27 Nov. You have to notify the itour when you will go for check in.',
     ),
   ];
@@ -83,8 +63,10 @@ class _NotificationScreenState extends State<NotificationScreen> {
         child: ListView.builder(
           itemCount: _notifications.length,
           itemBuilder: (context, index) => NotificationContainer(
-              _notifications[index].dateTime,
-              _notifications[index].description),
+            dateTime: _notifications[index].dateTime,
+            description: _notifications[index].description,
+            action: () {},
+          ),
         ),
       ),
       floatingActionButton: const FloatingActionButtonContainer(),
