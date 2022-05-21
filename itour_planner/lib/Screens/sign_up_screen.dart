@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_signin_button/flutter_signin_button.dart';
 import 'package:itour_planner/Screens/email_verification_screen.dart';
-import 'package:itour_planner/main.dart';
 import 'package:provider/provider.dart';
 import '../FirebaseServices/authentication_service.dart';
 import 'login_screen.dart';
@@ -16,6 +15,7 @@ class SignUp extends StatefulWidget {
 class _SignUpState extends State<SignUp> {
   bool _isHidden = true;
 
+  final TextEditingController _nameController = TextEditingController();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
 
@@ -39,11 +39,11 @@ class _SignUpState extends State<SignUp> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
+      body: ListView(
         children: [
           Container(
             width: double.infinity,
-            height: 250,
+            height: 200,
             child: SizedBox(
               height: 60,
               child: Image.asset('assets/images/app_logo.png'),
@@ -63,7 +63,6 @@ class _SignUpState extends State<SignUp> {
           ),
           Container(
             width: double.infinity,
-            height: 450,
             margin: const EdgeInsets.fromLTRB(20, 0, 20, 0),
             decoration: const BoxDecoration(
               borderRadius: BorderRadius.all(
@@ -74,6 +73,37 @@ class _SignUpState extends State<SignUp> {
               mainAxisAlignment: MainAxisAlignment.start,
               children: <Widget>[
                 Container(
+                  height: 50,
+                  margin: const EdgeInsets.fromLTRB(5, 15, 5, 0),
+                  child: TextFormField(
+                    controller: _nameController,
+                    keyboardType: TextInputType.name,
+                    decoration: InputDecoration(
+                      prefixIcon: const Icon(
+                        Icons.person,
+                        color: Color.fromRGBO(173, 37, 51, 1),
+                      ),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10.0),
+                        borderSide: const BorderSide(
+                          width: 2.0,
+                        ),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10.0),
+                        borderSide: const BorderSide(
+                          width: 2.0,
+                        ),
+                      ),
+                      labelText: 'Name',
+                      labelStyle: const TextStyle(
+                        color: Color.fromRGBO(173, 37, 51, 1),
+                      ),
+                    ),
+                  ),
+                ),
+                Container(
+                  height: 50,
                   margin: const EdgeInsets.fromLTRB(5, 15, 5, 0),
                   child: TextFormField(
                     validator: _validateEmail,
@@ -110,6 +140,7 @@ class _SignUpState extends State<SignUp> {
                   ),
                 ),
                 Container(
+                  height: 50,
                   margin: const EdgeInsets.fromLTRB(5, 15, 5, 0),
                   child: TextFormField(
                     validator: null,
@@ -153,6 +184,7 @@ class _SignUpState extends State<SignUp> {
                   ),
                 ),
                 Container(
+                  height: 50,
                   margin: const EdgeInsets.fromLTRB(5, 15, 5, 0),
                   child: TextFormField(
                     validator: null,
@@ -195,36 +227,45 @@ class _SignUpState extends State<SignUp> {
                     ),
                   ),
                 ),
-                loading ? CircularProgressIndicator(color: Color.fromARGB(255, 148, 10, 0),) : Container(
-                  margin: const EdgeInsets.fromLTRB(0, 20, 0, 0),
-                  width: 150,
-                  height: 50,
-                  child: ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      alignment: Alignment.center,
-                      primary: const Color.fromRGBO(173, 37, 51, 1),
-                      onPrimary: Colors.white,
-                      shape: const StadiumBorder(),
-                    ),
-                    onPressed: () async{
-                      setState(() {
+                loading
+                    ? CircularProgressIndicator(
+                        color: Color.fromARGB(255, 148, 10, 0),
+                      )
+                    : Container(
+                        margin: const EdgeInsets.fromLTRB(0, 20, 0, 0),
+                        width: 150,
+                        height: 50,
+                        child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            alignment: Alignment.center,
+                            primary: const Color.fromRGBO(173, 37, 51, 1),
+                            onPrimary: Colors.white,
+                            shape: const StadiumBorder(),
+                          ),
+                          onPressed: () async {
+                            setState(() {
                               loading = true;
                             });
                             await context.read<AuthenticationService>().signUp(
                                 email: _emailController.text,
                                 password: _passwordController.text);
+                            
                             setState(() {
                               loading = false;
-                            }); 
+                            });
 
-                            Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => EmailVerificationScreen()));
-                    },
-                    child: const Text(
-                      'SIGN UP',
-                      style: TextStyle(fontWeight: FontWeight.bold),
-                    ),
-                  ),
-                ),
+                            Navigator.pushReplacement(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) =>
+                                        EmailVerificationScreen()));
+                          },
+                          child: const Text(
+                            'SIGN UP',
+                            style: TextStyle(fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                      ),
                 Container(
                   margin: const EdgeInsets.only(top: 20),
                   child: SignInButton(

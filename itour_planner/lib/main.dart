@@ -29,7 +29,7 @@ class MyApp extends StatelessWidget {
           initialData: null,
         ),
       ],
-      child: MaterialApp(
+      child: const MaterialApp(
         home: Directionality(
             textDirection: TextDirection.rtl, child: SplashScreen()),
         debugShowCheckedModeBanner: false,
@@ -48,7 +48,6 @@ class AuthenticationWrapper extends StatelessWidget {
 
     if (firebaseUser != null) {
       if (firebaseUser.emailVerified) {
-        print("Signed In Successfully");
         return const DashboardScreen();
       } else {
         return EmailVerificationScreen();

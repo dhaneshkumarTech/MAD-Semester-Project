@@ -1,5 +1,3 @@
-// ignore_for_file: camel_case_types, avoid_unnecessary_containers
-
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:itour_planner/Models/category_model.dart';
@@ -10,7 +8,6 @@ import 'package:itour_planner/Widgets/floating_action_button.dart';
 import 'package:itour_planner/Models/trending_model.dart';
 import 'package:itour_planner/Widgets/main_category_button.dart';
 import 'package:itour_planner/Widgets/place_category_button.dart';
-import 'package:itour_planner/Widgets/sites_tabbar_view.dart';
 import 'package:itour_planner/Widgets/trending_image_container.dart';
 import 'package:itour_planner/Screens/notification_screen.dart';
 import 'package:itour_planner/Screens/profile_screen.dart';
@@ -28,12 +25,12 @@ class _DashboardScreenState extends State<DashboardScreen> {
   final List<TrendingModel> _trending = [
     const TrendingModel("assets/DashboardImages/Images/faisal_mosque.png",
         "Faisal Mosque", 3, "Historical Place", "Islamabad, Pakistan"),
-    const TrendingModel("assets/DashboardImages/Images/faisal_mosque.png",
-        "Faisal Mosque", 3, "Historical Place", "Islamabad, Pakistan"),
-    const TrendingModel("assets/DashboardImages/Images/faisal_mosque.png",
-        "Faisal Mosque", 3, "Historical Place", "Islamabad, Pakistan"),
-    const TrendingModel("assets/DashboardImages/Images/faisal_mosque.png",
-        "Faisal Mosque", 3, "Historical Place", "Islamabad, Pakistan")
+    const TrendingModel("assets/DashboardImages/Images/centurus.png",
+        "Centurus Mall", 3, "Historical Place", "Islamabad, Pakistan"),
+    const TrendingModel("assets/DashboardImages/Images/monal.png",
+        "Monal", 3, "Historical Place", "Islamabad, Pakistan"),
+    const TrendingModel("assets/DashboardImages/Images/emporium.png",
+        "Emporium Mall", 3, "Shopping Mall", "Lahore, Pakistan")
   ];
 
   final List<CategoryModel> _categories = [
@@ -51,7 +48,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
       body: Container(
         margin: const EdgeInsets.fromLTRB(20, 60, 20, 0),
         width: double.infinity,
-        child: Column(
+        child: ListView(
           children: [
             Container(
               margin: const EdgeInsets.only(bottom: 20),
@@ -59,15 +56,11 @@ class _DashboardScreenState extends State<DashboardScreen> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Container(
+                  SizedBox(
                     child: Row(
                       children: [
                         //profile Picture
-                        Card(
-                          elevation: 5,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(30),
-                          ),
+                        ClipOval(
                           child: SizedBox(
                             height: 55,
                             width: 55,
@@ -83,13 +76,15 @@ class _DashboardScreenState extends State<DashboardScreen> {
                               },
                             ),
                           ),
-                          margin: const EdgeInsets.only(right: 10),
                         ),
                         //Account Name
-                        Text(
-                          "Hi, ${firebaseUser?.displayName}",
-                          style: TextStyle(
-                            fontSize: 18,
+                        Container(
+                          margin: const EdgeInsets.only(left: 10),
+                          child: Text(
+                            "Hi, ${firebaseUser?.displayName}",
+                            style: const TextStyle(
+                              fontSize: 18,
+                            ),
                           ),
                         ),
                       ],
@@ -178,30 +173,24 @@ class _DashboardScreenState extends State<DashboardScreen> {
                     icon: "assets/DashboardImages/Icons/sites.png",
                     text: "Sites",
                     action: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => PlanTrips()));
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => const PlanTrips()));
                     },
                   ),
                   MainCategoryButton(
                     icon: "assets/DashboardImages/Icons/hotels.png",
                     text: "Hotels",
                     action: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => PlanTrips()));
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => const PlanTrips()));
                     },
                   ),
                   MainCategoryButton(
                     icon: "assets/DashboardImages/Icons/foods.png",
                     text: "Foods",
                     action: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => PlanTrips()));
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => const PlanTrips()));
                     },
                   )
                 ],

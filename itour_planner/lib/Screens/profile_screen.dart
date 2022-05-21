@@ -2,7 +2,8 @@
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:itour_planner/Screens/login_screen.dart';
+import 'package:itour_planner/Screens/dashboard_screen.dart';
+import 'package:itour_planner/Screens/notification_screen.dart';
 import 'package:provider/provider.dart';
 
 import '../Widgets/bottom_navigation_bar.dart';
@@ -22,19 +23,23 @@ class _profileScreenState extends State<profileScreen> {
 
   @override
   Widget build(BuildContext context) {
-
     final firebaseUser = FirebaseAuth.instance.currentUser;
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Account'),
+        title: const Text('Profile'),
         leading: Builder(
           builder: (BuildContext context) {
             return IconButton(
-              icon: const ImageIcon(
-                AssetImage("assets/BottomAppBarIcons/back.png"),
-              ),
-              onPressed: () {},
+              icon: const Icon(Icons.arrow_back_ios),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const DashboardScreen(),
+                  ),
+                );
+              },
               tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,
             );
           },
@@ -69,14 +74,14 @@ class _profileScreenState extends State<profileScreen> {
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text("${firebaseUser?.displayName}",
-                          style: TextStyle(
+                        Text(
+                          "${firebaseUser?.displayName}",
+                          style: const TextStyle(
                               fontSize: 14, fontWeight: FontWeight.w900),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           width: 5,
                         ),
-                      
                       ],
                     ),
                     const SizedBox(
@@ -84,14 +89,16 @@ class _profileScreenState extends State<profileScreen> {
                     ),
                     Text(
                       "${firebaseUser?.email}",
-                      style:
-                          TextStyle(fontSize: 12, fontWeight: FontWeight.bold),
+                      style: const TextStyle(
+                        fontSize: 12,
+                        fontWeight: FontWeight.bold,
+                      ),
                     )
                   ],
                 ),
               ],
             ),
-            Container(
+            SizedBox(
               height: 360,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -173,7 +180,14 @@ class _profileScreenState extends State<profileScreen> {
                   AspectRatio(
                     aspectRatio: 12,
                     child: RaisedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const NotificationScreen(),
+                          ),
+                        );
+                      },
                       color: Colors.white,
                       child: Padding(
                         padding: const EdgeInsets.fromLTRB(0, 5, 0, 5),

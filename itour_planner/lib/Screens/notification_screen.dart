@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:itour_planner/Screens/dashboard_screen.dart';
+import 'package:itour_planner/Screens/profile_screen.dart';
 import 'package:itour_planner/Widgets/bottom_navigation_bar.dart';
 import 'package:itour_planner/Widgets/floating_action_button.dart';
 import 'package:itour_planner/Widgets/notification_container.dart';
@@ -53,7 +55,23 @@ class _NotificationScreenState extends State<NotificationScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Notifications'),
+        title: const Text('Notification'),
+        leading: Builder(
+          builder: (BuildContext context) {
+            return IconButton(
+              icon: const Icon(Icons.arrow_back_ios),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const DashboardScreen(),
+                  ),
+                );
+              },
+              tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,
+            );
+          },
+        ),
         backgroundColor: themeColor,
       ),
       body: Container(

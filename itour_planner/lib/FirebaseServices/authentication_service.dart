@@ -13,6 +13,8 @@ class AuthenticationService {
     try {
       await _firebaseAuth.signInWithEmailAndPassword(
           email: email, password: password);
+           await _firebaseAuth.currentUser?.updateDisplayName("Abdullah Shahid");
+      await _firebaseAuth.currentUser?.updatePhotoURL("assets/profile.jpeg");
       return "Signed in";
     } on FirebaseAuthException catch (e) {
       return e.message.toString();
@@ -24,6 +26,9 @@ class AuthenticationService {
     try {
       await _firebaseAuth.createUserWithEmailAndPassword(
           email: email, password: password);
+      await _firebaseAuth.currentUser?.updateDisplayName("Abdullah Shahid");
+      await _firebaseAuth.currentUser?.updatePhotoURL("assets/profile.jpeg");
+          
       return "Signed Up";
     } on FirebaseAuthException catch (e) {
       return e.message.toString();

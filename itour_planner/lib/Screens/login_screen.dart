@@ -45,7 +45,7 @@ class _LoginScreenState extends State<LoginScreen> {
               top: 100,
             ),
             width: double.infinity,
-            height: 250,
+            height: 200,
             child: SizedBox(
               height: 60,
               child: Image.asset('assets/images/app_logo.png'),
@@ -76,6 +76,7 @@ class _LoginScreenState extends State<LoginScreen> {
               mainAxisAlignment: MainAxisAlignment.start,
               children: <Widget>[
                 Container(
+                  height: 50,
                   margin: const EdgeInsets.fromLTRB(5, 50, 5, 0),
                   child: TextFormField(
                     validator: _validateEmail,
@@ -112,6 +113,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                 ),
                 Container(
+                  height: 50,
                   margin: const EdgeInsets.fromLTRB(5, 20, 5, 0),
                   child: TextFormField(
                     validator: null,
