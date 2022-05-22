@@ -4,6 +4,8 @@ import 'package:itour_planner/Screens/review_screen.dart';
 import 'package:itour_planner/Widgets/floating_action_button.dart';
 import 'package:itour_planner/Widgets/plan_container.dart';
 
+import 'add_sites_hotels_foods.dart';
+
 class TripsPlan extends StatefulWidget {
   
   const TripsPlan({Key? key}) : super(key: key);
@@ -79,6 +81,16 @@ class _TripsPlanState extends State<TripsPlan> {
                     tripName: _tripPlans[index].tripName,
                     image: _tripPlans[index].image,
                     saves: _tripPlans[index].saves,
+                    action: (){
+                                                    Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) =>
+                                     const  AddSitesHotelFoods(),
+                                ),
+                              );
+
+                    },
                   ),
                 ),
               ),

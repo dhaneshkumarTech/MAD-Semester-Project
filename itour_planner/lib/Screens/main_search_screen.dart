@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:itour_planner/Screens/dashboard_screen.dart';
+
 import 'package:itour_planner/Screens/navigate_screens.dart';
+
+import 'site_screen.dart';
 
 class MainSearchScreen extends StatefulWidget {
   const MainSearchScreen({Key? key}) : super(key: key);
@@ -76,10 +78,10 @@ class _MainSearchScreenState extends State<MainSearchScreen> {
 
 class _MySearchDelegate extends SearchDelegate {
   List<String> searchResults = [
-    'Islambad, Pakistan',
-    'Islampura Hotel, Lahore',
-    'Islootrip Arena, Karachi',
-    'Islamia Resturant, Faisalabad'
+ //   'Islambad, Pakistan',
+  //  'Islampura Hotel, Lahore',
+   // 'Islootrip Arena, Karachi',
+    //'Islamia Resturant, Faisalabad'
   ];
 
   @override
@@ -114,15 +116,7 @@ class _MySearchDelegate extends SearchDelegate {
 
   @override
   Widget buildResults(BuildContext context) {
-    return Center(
-      child: Text(
-        query,
-        style: const TextStyle(
-          fontSize: 64,
-          fontWeight: FontWeight.bold,
-        ),
-      ),
-    );
+    return const SiteScreen();
   }
 
   @override

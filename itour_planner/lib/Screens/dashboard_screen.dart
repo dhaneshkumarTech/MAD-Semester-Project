@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:itour_planner/Models/category_model.dart';
 import 'package:itour_planner/Screens/main_search_screen.dart';
 import 'package:itour_planner/Screens/site_screen.dart';
-import 'package:itour_planner/Screens/navigate_screens.dart';
+
 
 import 'package:itour_planner/Models/trending_model.dart';
 import 'package:itour_planner/Widgets/main_category_button.dart';
@@ -128,7 +128,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
             ),
             Container(
               margin: const EdgeInsets.only(left: 20, bottom: 10),
-              height: 60,
+              height: 70,
               width: double.infinity,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,

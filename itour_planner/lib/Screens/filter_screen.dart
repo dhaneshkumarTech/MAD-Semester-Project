@@ -66,9 +66,7 @@ class _FilterScreenState extends State<FilterScreen> {
                                 .openAppDrawerTooltip,
                           ),
                           IconButton(
-                            icon: const ImageIcon(
-                              AssetImage("assets/BottomAppBarIcons/filter.png"),
-                            ),
+                            icon: const Icon(Icons.filter_list),
                             onPressed: () {
                               Navigator.push(
                                   context,
@@ -155,10 +153,10 @@ class _FilterScreenState extends State<FilterScreen> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           RaisedButton(
-                            child:  const Text('Nature'),
+                            child: const Text('Nature'),
                             textColor: Colors.white,
                             // 2
-                            color : _hasBeenPressed ? Colors.blue : Colors.red,
+                            color: _hasBeenPressed ? Colors.blue : Colors.red,
                             // 3
                             onPressed: () => {
                               setState(() {

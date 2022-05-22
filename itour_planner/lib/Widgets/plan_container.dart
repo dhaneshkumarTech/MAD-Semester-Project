@@ -6,19 +6,19 @@ class PlanContaienr extends StatelessWidget {
   final String tripName;
   final String image;
   final int saves;
+  final VoidCallback action;
   const PlanContaienr(
       {Key? key,
       required this.tripName,
       required this.image,
-      required this.saves})
+      required this.saves,
+      required this.action})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: (){
-        
-      },
+      onTap: action,
       child: Card(
         margin: const EdgeInsets.only(bottom: 30),
         elevation: 5,

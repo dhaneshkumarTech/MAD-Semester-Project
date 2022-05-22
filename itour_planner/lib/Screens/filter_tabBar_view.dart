@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:itour_planner/Screens/dashboard_screen.dart';
 import 'package:itour_planner/Screens/filter_screen.dart';
+import 'package:itour_planner/Screens/site_screen.dart';
 import 'package:itour_planner/Widgets/hotel_filter_tab_bar.dart';
 import 'package:itour_planner/Widgets/hotels_tabbar_view.dart';
 import 'package:itour_planner/Widgets/sites_tabbar_view.dart';
@@ -39,7 +40,7 @@ class _FilterTabBarViewState extends State<FilterTabBarView> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => const DashboardScreen()));
+                                builder: (context) => const SiteScreen()));
                       },
                       tooltip: MaterialLocalizations.of(context)
                           .openAppDrawerTooltip,
@@ -72,9 +73,7 @@ class _FilterTabBarViewState extends State<FilterTabBarView> {
                       ),
                     ),
                     IconButton(
-                      icon: const ImageIcon(
-                        AssetImage("assets/BottomAppBarIcons/filter.png"),
-                      ),
+                      icon: const Icon(Icons.filter_list),
                       onPressed: () {
                         Navigator.push(
                             context,
