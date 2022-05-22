@@ -3,11 +3,9 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:itour_planner/Screens/email_verification_screen.dart';
 import 'package:itour_planner/Screens/login_screen.dart';
-import 'package:itour_planner/Screens/site_screen.dart';
-import 'package:itour_planner/Screens/sites_single_page.dart';
+import 'package:itour_planner/Screens/navigate_screens.dart';
 import 'package:provider/provider.dart';
 import 'Screens/splash_screen.dart';
-import 'Screens/dashboard_screen.dart';
 import 'FirebaseServices/authentication_service.dart';
 
 Future<void> main() async {
@@ -50,7 +48,7 @@ class AuthenticationWrapper extends StatelessWidget {
 
     if (firebaseUser != null) {
       if (firebaseUser.emailVerified) {
-        return const SiteScreen();
+        return const NavigateScreens();
       } else {
         return EmailVerificationScreen();
       }

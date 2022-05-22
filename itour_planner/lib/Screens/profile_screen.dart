@@ -6,9 +6,8 @@ import 'package:itour_planner/Screens/dashboard_screen.dart';
 import 'package:itour_planner/Screens/notification_screen.dart';
 import 'package:provider/provider.dart';
 
-import '../Widgets/bottom_navigation_bar.dart';
+import 'navigate_screens.dart';
 import '../FirebaseServices/authentication_service.dart';
-import '../Widgets/floating_action_button.dart';
 import '../main.dart';
 
 class profileScreen extends StatefulWidget {
@@ -331,12 +330,6 @@ class _profileScreenState extends State<profileScreen> {
           ],
         ),
       ),
-      // flaoting Action Active Button
-      floatingActionButton: const FloatingActionButtonContainer(),
-      floatingActionButtonLocation:
-          FloatingActionButtonLocation.miniCenterFloat,
-      //Navigation Bar
-      bottomNavigationBar: const BottomNavigationBarContainer(),
     );
   }
 }

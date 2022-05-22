@@ -8,14 +8,22 @@ class FloatingActionButtonContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      child: FloatingActionButton(
-        backgroundColor: Colors.white,
-        splashColor: themeColor.withOpacity(0.2),
-        onPressed: () {},
-        child: Image.asset(
-          "assets/BottomAppBarIcons/plane.png",
+      width: 300,
+      child: ElevatedButton(
+        style: ElevatedButton.styleFrom(
+          primary: const Color(0xffFFC107), //background color of button
+
+          shape: RoundedRectangleBorder(
+              //to set border radius to button
+              borderRadius: BorderRadius.circular(30)),
         ),
-        elevation: 6.0,
+        onPressed: () {
+        //  showAlertDialog(context);
+        },
+        child: const Text(
+          "Create Trip",
+          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+        ),
       ),
     );
   }

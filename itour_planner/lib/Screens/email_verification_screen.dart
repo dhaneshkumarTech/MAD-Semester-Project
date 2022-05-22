@@ -73,7 +73,7 @@ class _EmailVerificationScreenState extends State<EmailVerificationScreen> {
       await user.updatePhotoURL("assets/images/profilePic.png");
 
       Navigator.of(context).pushReplacement(
-          MaterialPageRoute(builder: (context) => VerifiedScreen()));
+          MaterialPageRoute(builder: (context) => const VerifiedScreen()));
     }
   }
 }

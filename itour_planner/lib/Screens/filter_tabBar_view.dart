@@ -1,17 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:itour_planner/Screens/dashboard_screen.dart';
+import 'package:itour_planner/Screens/filter_screen.dart';
+import 'package:itour_planner/Widgets/hotel_filter_tab_bar.dart';
 import 'package:itour_planner/Widgets/hotels_tabbar_view.dart';
 import 'package:itour_planner/Widgets/sites_tabbar_view.dart';
 
-class SiteScreen extends StatefulWidget {
-  const SiteScreen({Key? key}) : super(key: key);
+class FilterTabBarView extends StatefulWidget {
+  const FilterTabBarView({Key? key}) : super(key: key);
 
   @override
-  State<SiteScreen> createState() => _SiteScreenState();
+  State<FilterTabBarView> createState() => _FilterTabBarViewState();
 }
 
-class _SiteScreenState extends State<SiteScreen> {
-  final TextEditingController _searchController = TextEditingController();
+class _FilterTabBarViewState extends State<FilterTabBarView> {
   @override
   Widget build(BuildContext context) {
     Color themeColor = const Color.fromRGBO(173, 37, 51, 1);
@@ -30,25 +32,29 @@ class _SiteScreenState extends State<SiteScreen> {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     IconButton(
-                      icon: const Icon(Icons.arrow_back_ios),
+                      icon: const ImageIcon(
+                        AssetImage("assets/BottomAppBarIcons/back.png"),
+                      ),
                       onPressed: () {
                         Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const DashboardScreen(),
-                          ),
-                        );
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const DashboardScreen()));
                       },
+                      tooltip: MaterialLocalizations.of(context)
+                          .openAppDrawerTooltip,
                     ),
-                    Container(
-                      height: 50,
-                      width: 295,
-                      margin: const EdgeInsets.only(top: 5, bottom: 5),
-                      child: Card(
-                        elevation: 2.0,
+                    Card(
+                      //  margin: const EdgeInsets.only(bottom: 10),
+                      elevation: 1.0,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(30),
+                      ),
+                      child: Container(
+                        height: 50,
+                        width: 300,
+                        alignment: Alignment.center,
                         child: TextField(
-                          controller: _searchController,
-                          keyboardType: TextInputType.text,
                           decoration: InputDecoration(
                             prefixIcon: Icon(
                               Icons.search_rounded,
@@ -66,8 +72,15 @@ class _SiteScreenState extends State<SiteScreen> {
                       ),
                     ),
                     IconButton(
-                      icon: const Icon(Icons.filter_list),
-                      onPressed: () {},
+                      icon: const ImageIcon(
+                        AssetImage("assets/BottomAppBarIcons/filter.png"),
+                      ),
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const FilterScreen()));
+                      },
                       tooltip: MaterialLocalizations.of(context)
                           .openAppDrawerTooltip,
                     ),
@@ -107,11 +120,11 @@ class _SiteScreenState extends State<SiteScreen> {
                   child: TabBarView(
                     children: [
                       //Sites
-                      SiteTabBarView(),
+                      SiteFilterView(),
                       // Hotels
-                      HotelsTabBarView(),
+                      SiteFilterView(),
                       //Foods
-                      HotelsTabBarView(),
+                      SiteFilterView(),
                     ],
                   ),
                 ),

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:itour_planner/Widgets/bottom_navigation_bar.dart';
-import 'package:itour_planner/Widgets/floating_action_button.dart';
+import 'package:itour_planner/Screens/navigate_screens.dart';
 import 'package:itour_planner/Models/review_model.dart';
 import 'package:itour_planner/Widgets/to_review_container.dart';
 import '../Widgets/reviewed_container.dart';
@@ -144,9 +143,6 @@ class _ReviewsReviewedScreenState extends State<ReviewsReviewedScreen> {
             ),
           ),
         ),
-        floatingActionButton: const FloatingActionButtonContainer(),
-        floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-        bottomNavigationBar: const BottomNavigationBarContainer(),
       ),
     );
   }

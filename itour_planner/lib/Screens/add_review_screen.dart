@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
-import 'package:itour_planner/Widgets/bottom_navigation_bar.dart';
-import 'package:itour_planner/Widgets/floating_action_button.dart';
 import '../Widgets/image_picker_button.dart';
 
 class AddReviewScreen extends StatefulWidget {
@@ -188,9 +186,6 @@ class _AddReviewScreenState extends State<AddReviewScreen> {
           ],
         ),
       ),
-      floatingActionButton: const FloatingActionButtonContainer(),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-      bottomNavigationBar: const BottomNavigationBarContainer(),
     );
   }
 }

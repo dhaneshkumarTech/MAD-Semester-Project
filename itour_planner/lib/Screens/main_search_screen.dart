@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:itour_planner/Screens/dashboard_screen.dart';
-import 'package:itour_planner/Widgets/bottom_navigation_bar.dart';
-import 'package:itour_planner/Widgets/floating_action_button.dart';
+import 'package:itour_planner/Screens/navigate_screens.dart';
 
 class MainSearchScreen extends StatefulWidget {
   const MainSearchScreen({Key? key}) : super(key: key);
@@ -26,7 +25,7 @@ class _MainSearchScreenState extends State<MainSearchScreen> {
             Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => const DashboardScreen(),
+                builder: (context) => const NavigateScreens(),
               ),
             );
           },
@@ -71,11 +70,6 @@ class _MainSearchScreenState extends State<MainSearchScreen> {
           ),
         ),
       ),
-      floatingActionButton: const FloatingActionButtonContainer(),
-      floatingActionButtonLocation:
-          FloatingActionButtonLocation.miniCenterFloat,
-      //Navigation Bar
-      bottomNavigationBar: const BottomNavigationBarContainer(),
     );
   }
 }

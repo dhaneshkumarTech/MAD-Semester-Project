@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:itour_planner/Widgets/bottom_navigation_bar.dart';
-import 'package:itour_planner/Widgets/floating_action_button.dart';
 import 'package:itour_planner/Widgets/hotels_tabbar_view.dart';
-import 'package:itour_planner/Widgets/main_category_button.dart';
 import 'package:itour_planner/Widgets/sites_tabbar_view.dart';
 
 class PlanTrips extends StatefulWidget {
@@ -20,18 +17,10 @@ class _PlanTripsState extends State<PlanTrips> {
       length: 3,
       child: Scaffold(
         appBar: AppBar(
-          leading: Builder(
-            builder: (BuildContext context) {
-              return IconButton(
-                icon: const ImageIcon(
-                  AssetImage("assets/BottomAppBarIcons/back.png"),
-                ),
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-                tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,
-              );
-            },
+          title: const Text('Plans'),
+          leading: GestureDetector(
+            child: const Icon(Icons.arrow_back_ios),
+            onTap: () {},
           ),
           backgroundColor: themeColor,
         ),
@@ -52,31 +41,75 @@ class _PlanTripsState extends State<PlanTrips> {
                 child: const Text(
                   "Jennifer's Trip",
                   style: TextStyle(
-                      color: Colors.black,
-                      fontWeight: FontWeight.w800,
-                      fontSize: 30),
+                    color: Colors.black,
+                    fontWeight: FontWeight.w800,
+                    fontSize: 26,
+                  ),
                 ),
               ),
 
               //calendar and icon buton
               Container(
-                margin: const EdgeInsets.only(left: 20, top: 10),
+                margin: const EdgeInsets.only(top: 10, bottom: 10),
                 width: double.infinity,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    MainCategoryButton(
-                      icon: "assets/DashboardImages/Icons/Calendar.png",
-                      text: "add your travel dates",
-                      action: () {},
+                    Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(30),
+                        border: Border.all(color: Colors.black),
+                      ),
+                      margin: const EdgeInsets.only(
+                        left: 20,
+                      ),
+                      width: 160,
+                      padding: const EdgeInsets.only(
+                        top: 5,
+                        bottom: 5,
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          const Icon(Icons.location_city),
+                          Container(
+                            margin: const EdgeInsets.only(
+                              left: 2,
+                            ),
+                            child: const Text(
+                              'Add your travel date',
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
-                    const SizedBox(
-                      width: 10,
-                    ),
-                    MainCategoryButton(
-                      icon: 'assets/DashboardImages/Icons/map.png',
-                      text: "view on map",
-                      action: () {},
+                    Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(30),
+                        border: Border.all(color: Colors.black),
+                      ),
+                      margin: const EdgeInsets.only(
+                        left: 20,
+                      ),
+                      width: 130,
+                      padding: const EdgeInsets.only(
+                        top: 5,
+                        bottom: 5,
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          const Icon(Icons.location_on_outlined),
+                          Container(
+                            margin: const EdgeInsets.only(
+                              left: 2,
+                            ),
+                            child: const Text(
+                              'view on map',
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                   ],
                 ),
@@ -131,13 +164,6 @@ class _PlanTripsState extends State<PlanTrips> {
             ],
           ),
         ),
-
-        // flaoting Action Active Button
-        floatingActionButton: const FloatingActionButtonContainer(),
-        floatingActionButtonLocation:
-            FloatingActionButtonLocation.miniCenterFloat,
-        //Navigation Bar
-        bottomNavigationBar: const BottomNavigationBarContainer(),
       ),
     );
   }

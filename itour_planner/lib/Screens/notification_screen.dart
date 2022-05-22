@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:itour_planner/Screens/dashboard_screen.dart';
-import 'package:itour_planner/Screens/profile_screen.dart';
-import 'package:itour_planner/Widgets/bottom_navigation_bar.dart';
-import 'package:itour_planner/Widgets/floating_action_button.dart';
+import 'package:itour_planner/Screens/navigate_screens.dart';
 import 'package:itour_planner/Widgets/notification_container.dart';
 import '../Models/notification_model.dart';
 
@@ -69,9 +67,6 @@ class _NotificationScreenState extends State<NotificationScreen> {
           ),
         ),
       ),
-      floatingActionButton: const FloatingActionButtonContainer(),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-      bottomNavigationBar: const BottomNavigationBarContainer(),
     );
   }
 }

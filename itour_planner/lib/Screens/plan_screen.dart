@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:itour_planner/Models/trip_plan_model.dart';
 import 'package:itour_planner/Screens/review_screen.dart';
-import 'package:itour_planner/Widgets/bottom_navigation_bar.dart';
 import 'package:itour_planner/Widgets/floating_action_button.dart';
 import 'package:itour_planner/Widgets/plan_container.dart';
 
 class TripsPlan extends StatefulWidget {
+  
   const TripsPlan({Key? key}) : super(key: key);
 
   @override
@@ -13,6 +13,8 @@ class TripsPlan extends StatefulWidget {
 }
 
 class _TripsPlanState extends State<TripsPlan> {
+  
+  
   Color themeColor = const Color.fromRGBO(173, 37, 51, 1);
 
   final List<TripPlanModel> _tripPlans = [
@@ -21,21 +23,6 @@ class _TripsPlanState extends State<TripsPlan> {
       image: 'assets/PlanPics/Karimabad.png',
       saves: 1,
     ),
-    TripPlanModel(
-      tripName: 'Bilal\'s Trip',
-      image: 'assets/PlanPics/Shogran.png',
-      saves: 1,
-    ),
-    TripPlanModel(
-      tripName: 'Bilal\'s Trip',
-      image: 'assets/PlanPics/Shogran.png',
-      saves: 1,
-    ),
-    TripPlanModel(
-      tripName: 'Bilal\'s Trip',
-      image: 'assets/PlanPics/Shogran.png',
-      saves: 1,
-    )
   ];
 
   @override
@@ -101,10 +88,10 @@ class _TripsPlanState extends State<TripsPlan> {
               Container(color: Colors.redAccent),
             ],
           ),
+          
         ),
         floatingActionButton: const FloatingActionButtonContainer(),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-        bottomNavigationBar: const BottomNavigationBarContainer(),
       ),
     );
   }
